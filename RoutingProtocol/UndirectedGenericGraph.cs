@@ -25,7 +25,7 @@ namespace RoutingProtocol
             if (size < 0)
             {
                 throw new ArgumentException("Number of vertices cannot be negative");
-            }            
+            }
 
             vertices = new List<Vertex<T>>(initialSize);
 
@@ -52,8 +52,10 @@ namespace RoutingProtocol
             return vertices.Contains(vertex);
         }
 
+        int level = 0;
         public void DepthFirstSearch(Vertex<T> root)
         {
+            level++;
             if (!root.IsVisited)
             {
                 Console.Write(root.Value + " ");
@@ -63,7 +65,20 @@ namespace RoutingProtocol
                 {
                     DepthFirstSearch(neighbor);
                 }
+            }
+            level--;
+            if (level == 0) RestoreGraph(root);
+        }
 
+        private void RestoreGraph(Vertex<T> root)
+        {
+            if (root.IsVisited)
+            {
+                root.UndoVisit();
+                foreach (Vertex<T> neighbor in root.Neighbors)
+                {
+                    RestoreGraph(neighbor);
+                }
             }
         }
 
@@ -72,9 +87,8 @@ namespace RoutingProtocol
         {
 
             Queue<Vertex<T>> queue = new Queue<Vertex<T>>();
-
+            Console.Write(root.Value + " ");
             root.Visit();
-
             queue.Enqueue(root);
 
             while (queue.Count > 0)
@@ -91,6 +105,49 @@ namespace RoutingProtocol
                     }
                 }
             }
+
+            RestoreGraph(root);
+        }
+
+Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
+        public void Reach(Vertex<T> root, Vertex<T> vertex)
+        {
+            level++;
+
+            if (!root.IsVisited)
+            {
+                
+                stack.Push(root);
+
+                root.Visit();
+
+                if (!root.Equals(vertex))
+                {
+                    foreach (Vertex<T> neighbor in root.Neighbors)
+                    {
+                        Reach(neighbor, vertex);
+                        
+                    }
+                }
+                else
+                {
+                    foreach (Vertex<T> part in stack.Reverse())
+                    {
+                        Console.Write( part.Value + " ");
+                    }
+                }
+                stack.Pop();
+            }
+            level--;
+            if (level == 0) RestoreGraph(root);
+
+
+
+            /*foreach (Vertex<T> neighbor in root.Neighbors)
+            {
+                if (neighbor.Equals(vertex)) Console.WriteLine("yes");
+            }*/
+
         }
     }
 }

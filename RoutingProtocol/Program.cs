@@ -74,8 +74,9 @@ namespace RoutingProtocol
             //vertices[?].RemoveEdge(vertices[?]);
 
 
-            // Create graph using the UndirectedGenericGraph<T> class
             UndirectedGenericGraph<string> testGraph = new UndirectedGenericGraph<string>(vertices);
+
+            Console.WriteLine(vertices[0].ToString());
 
             // Check to see that all neighbors are properly set up
             foreach (Vertex<string> vertex in vertices)
@@ -84,8 +85,12 @@ namespace RoutingProtocol
             }
 
             // Test searching algorithms
-            //testGraph.DepthFirstSearch(vertices[0]);
+            testGraph.DepthFirstSearch(vertices[0]);
+            Console.WriteLine();
             testGraph.BreadthFirstSearch(vertices[0]);
+            Console.WriteLine();
+            testGraph.Reach(vertices[0], vertices[5]);
+
 
         }
     }

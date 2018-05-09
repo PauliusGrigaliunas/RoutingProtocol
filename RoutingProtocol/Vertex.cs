@@ -37,6 +37,10 @@ namespace RoutingProtocol
         {
             _isVisited = true;
         }
+        public void UndoVisit()
+        {
+            _isVisited = false;
+        }
 
         public void AddEdge(Vertex<T> vertex)
         {
@@ -68,6 +72,12 @@ namespace RoutingProtocol
             _neighbors.Remove(vertex);
         }
 
+
+        public void Reach(Vertex<T> vertex)
+        {
+
+
+        }
 
         public override string ToString()
         {
