@@ -8,28 +8,27 @@ namespace RoutingProtocol
 {
     class WeightedEdge<T>
     {
-        int weight;
+        int _weight;
 
-        Vertex<T> start;
-        Vertex<T> end;
+        Vertex<T> _start;
+        Vertex<T> _end;
 
-        public int Weight { get { return weight; } }
+        public int Weight { get { return _weight; } }
 
-        public Vertex<T> Start { get { return start; } }
-        public Vertex<T> End { get { return end; } }
+        public Vertex<T> Start { get { return _start; } }
+        public Vertex<T> End { get { return _end; } }
 
         public WeightedEdge(Vertex<T> start, Vertex<T> end, int weight)
         {
-            this.start = start;
-            this.end = end;
-            this.weight = weight;
+            _start = start;
+            _end = end;
+            _weight = weight;
             start.AddEdge(end);
-            start.AddWeightedEdge(this);
         }
 
         public override string ToString()
         {
-            return string.Format("{0}--{1}-->{2}", start.Value, weight, end.Value);
+            return string.Format("{0}-- {1} -->{2}", _start.Value, _weight, _end.Value);
         }
     }
 }

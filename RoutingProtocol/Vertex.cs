@@ -12,31 +12,29 @@ namespace RoutingProtocol
         List<Vertex<T>> _neighbors;
         List<WeightedEdge<T>> _edges;
         T _value;
-        int _weight;
         bool _isVisited;
 
         public List<Vertex<T>> Neighbors { get { return _neighbors; } set { _neighbors = value; } }
+        public List<WeightedEdge<T>> Edges { get { return _edges; } set { _edges = value; } }
         public T Value { get { return _value; } set { _value = value; } }
-        public int Weight { get { return _weight; } set { _weight = value; } }
         public bool IsVisited { get { return _isVisited; } set { _isVisited = value; } }
         public int NeighborsCount { get { return _neighbors.Count; } }
 
-        public Vertex(T value, int weight = 0)
+        public Vertex(T value)
         {
             _value = value;
-            _weight = weight;
             _isVisited = false;
             _neighbors = new List<Vertex<T>>();
-            a = new List<Vertex<T>, int>();
+            _edges = new List<WeightedEdge<T>>();
         }
 
 
-        public Vertex(T value, List<Vertex<T>> neighbors, int weight = 0)
+        public Vertex(T value, List<Vertex<T>> neighbors)
         {
             _value = value;
-            _weight = weight;
             _isVisited = false;
             _neighbors = neighbors;
+            _edges = new List<WeightedEdge<T>>();
         }
 
         public void Visit()
@@ -53,9 +51,16 @@ namespace RoutingProtocol
             _neighbors.Add(vertex);
             vertex.AddEdgeBack(this);
         }
-        public void AddWeightedEdge(WeightedEdge<T> edge)
+        public void AddWeightedEdge(Vertex<T> edge, int weight = 0)
         {
-            _edges.Add(edge);
+            _edges.Add(new WeightedEdge<T>(this, edge, weight));
+            edge.AddWeightedEdgeBack(this, weight);
+
+        }
+
+        private void AddWeightedEdgeBack(Vertex<T> edge, int weight = 0)
+        {
+            _edges.Add(new WeightedEdge<T>(this, edge, weight));
         }
 
         public void AddEdges(List<Vertex<T>> newNeighbors)

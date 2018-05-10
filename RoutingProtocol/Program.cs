@@ -12,6 +12,64 @@ namespace RoutingProtocol
         {
             List<Vertex<string>> vertices = new List<Vertex<string>>
             (
+                 new Vertex<string>[]
+            {
+                new Vertex<string>("Router A"), //0
+                new Vertex<string>("Router B"), //1
+                new Vertex<string>("Router C")  //2
+            }
+            );
+
+            vertices[0].AddWeightedEdge(vertices[1], 2);
+            vertices[0].AddWeightedEdge(vertices[2], 3);
+
+           foreach (WeightedEdge<string> b in vertices[0].Edges) {
+                Console.WriteLine(b.ToString());
+            }
+
+            Console.WriteLine(); ;
+            foreach (WeightedEdge<string> b in vertices[1].Edges)
+            {
+                Console.WriteLine(b.ToString());
+            }
+
+            /*List<WeightedEdge<string>> list = new List<WeightedEdge<string>>();
+
+
+               foreach (Vertex<string> vertex in vertices)
+            {
+                Console.WriteLine(vertex.ToString());
+            }
+
+
+            foreach (WeightedEdge<string> part in list)
+            {
+                Console.WriteLine(part.ToString());
+            }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*List<Vertex<string>> vertices = new List<Vertex<string>>
+            (
                 new Vertex<string>[]
                     {
                 new Vertex<string>("Router A"), //0
@@ -28,8 +86,8 @@ namespace RoutingProtocol
                 new Vertex<string>("Router L")  //11
                     }
             );
-
-            vertices[0].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
+            */
+            /*vertices[0].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[1], vertices[2] , vertices[3], vertices[4], vertices[5]
             }
@@ -69,12 +127,12 @@ namespace RoutingProtocol
             vertices[10].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[11]
-            }));
+            }));*/
 
             //vertices[?].AddEdge(vertices[?]);
             //vertices[?].RemoveEdge(vertices[?]);
 
-
+            /*
             UndirectedGenericGraph<string> testGraph = new UndirectedGenericGraph<string>(vertices);
 
             Console.WriteLine(vertices[0].ToString());
@@ -91,7 +149,7 @@ namespace RoutingProtocol
             testGraph.BreadthFirstSearch(vertices[0]);
             Console.WriteLine();
             testGraph.Reach(vertices[0], vertices[5]);
-
+            */
 
         }
     }
