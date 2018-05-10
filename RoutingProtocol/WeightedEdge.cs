@@ -26,6 +26,7 @@ namespace RoutingProtocol
             start.AddEdge(end);
         }
 
+
         public override string ToString()
         {
             return string.Format("{0}-- {1} -->{2}", _start.Value, _weight, _end.Value);

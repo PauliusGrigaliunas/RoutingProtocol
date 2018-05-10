@@ -16,39 +16,36 @@ namespace RoutingProtocol
             {
                 new Vertex<string>("Router A"), //0
                 new Vertex<string>("Router B"), //1
-                new Vertex<string>("Router C")  //2
+                new Vertex<string>("Router C"), //2
+                new Vertex<string>("Router D")  //3
             }
             );
 
             vertices[0].AddWeightedEdge(vertices[1], 2);
             vertices[0].AddWeightedEdge(vertices[2], 3);
 
-           foreach (WeightedEdge<string> b in vertices[0].Edges) {
+            vertices[3].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            { vertices[0], vertices[1] , vertices[2] }
+            ), new List<int>(new int[] { 2, 3, 7 }));
+
+            foreach (WeightedEdge<string> b in vertices[0].Edges) {
                 Console.WriteLine(b.ToString());
             }
 
-            Console.WriteLine(); ;
+            Console.WriteLine(); 
             foreach (WeightedEdge<string> b in vertices[1].Edges)
             {
                 Console.WriteLine(b.ToString());
             }
+            Console.WriteLine();
 
-            /*List<WeightedEdge<string>> list = new List<WeightedEdge<string>>();
+            vertices[0].RemoveWeightedEdge(vertices[1]);
 
 
-               foreach (Vertex<string> vertex in vertices)
+            foreach (WeightedEdge<string> b in vertices[3].Edges)
             {
-                Console.WriteLine(vertex.ToString());
+                Console.WriteLine(b.ToString());
             }
-
-
-            foreach (WeightedEdge<string> part in list)
-            {
-                Console.WriteLine(part.ToString());
-            }*/
-
-
-
 
 
 

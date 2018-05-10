@@ -51,17 +51,7 @@ namespace RoutingProtocol
             _neighbors.Add(vertex);
             vertex.AddEdgeBack(this);
         }
-        public void AddWeightedEdge(Vertex<T> edge, int weight = 0)
-        {
-            _edges.Add(new WeightedEdge<T>(this, edge, weight));
-            edge.AddWeightedEdgeBack(this, weight);
 
-        }
-
-        private void AddWeightedEdgeBack(Vertex<T> edge, int weight = 0)
-        {
-            _edges.Add(new WeightedEdge<T>(this, edge, weight));
-        }
 
         public void AddEdges(List<Vertex<T>> newNeighbors)
         {
@@ -81,13 +71,50 @@ namespace RoutingProtocol
             _neighbors.Remove(vertex);
             vertex.RemoveEdgeBack(this);
         }
-
         private void RemoveEdgeBack(Vertex<T> vertex)
         {
             _neighbors.Remove(vertex);
         }
 
+        public void AddWeightedEdge(Vertex<T> edge, int weight = 0)
+        {
+            _edges.Add(new WeightedEdge<T>(this, edge, weight));
+            edge.AddWeightedEdgeBack(this, weight);
 
+        }
+
+        public void AddWeightedEdges(List<Vertex<T>> edges, List<int> weights)
+        {    
+            for(int i = 0; i < edges.Count(); i++) {
+                if (weights.Count().Equals(i)) weights.Add(0);
+                _edges.Add(new WeightedEdge<T>(this, edges[i], weights[i]));
+                edges[i].AddWeightedEdgeBack(this, weights[i]);
+            }
+        }
+
+        private void AddWeightedEdgeBack(Vertex<T> edge, int weight = 0)
+        {
+            _edges.Add(new WeightedEdge<T>(this, edge, weight));
+        }
+
+        public void RemoveWeightedEdge(Vertex<T> vertex)
+        {
+            foreach(WeightedEdge<T> Edge in Edges)
+                if(Edge.End.Equals(vertex)) {
+                    Edges.Remove(Edge);
+                    break; }
+           
+            vertex.RemoveWeightedEdgeBack(this);
+        }
+        private void RemoveWeightedEdgeBack(Vertex<T> vertex)
+        {
+            foreach (WeightedEdge<T> Edge in Edges)
+                if (Edge.End.Equals(vertex))
+                {
+                    Edges.Remove(Edge);
+                    break;
+                }
+        }
 
         public override string ToString()
         {
