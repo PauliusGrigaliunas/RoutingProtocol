@@ -31,8 +31,9 @@ namespace RoutingProtocol
 
             vertices[0].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
-            vertices[1], vertices[2], vertices[3], vertices[4], vertices[5]
-            }));
+            vertices[1], vertices[2] , vertices[3], vertices[4], vertices[5]
+            }
+            ));
 
             vertices[1].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {

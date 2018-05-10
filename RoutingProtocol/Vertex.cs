@@ -10,25 +10,31 @@ namespace RoutingProtocol
     {
 
         List<Vertex<T>> _neighbors;
+        List<WeightedEdge<T>> _edges;
         T _value;
+        int _weight;
         bool _isVisited;
 
         public List<Vertex<T>> Neighbors { get { return _neighbors; } set { _neighbors = value; } }
         public T Value { get { return _value; } set { _value = value; } }
+        public int Weight { get { return _weight; } set { _weight = value; } }
         public bool IsVisited { get { return _isVisited; } set { _isVisited = value; } }
         public int NeighborsCount { get { return _neighbors.Count; } }
 
-        public Vertex(T value)
+        public Vertex(T value, int weight = 0)
         {
             _value = value;
+            _weight = weight;
             _isVisited = false;
             _neighbors = new List<Vertex<T>>();
+            a = new List<Vertex<T>, int>();
         }
 
 
-        public Vertex(T value, List<Vertex<T>> neighbors)
+        public Vertex(T value, List<Vertex<T>> neighbors, int weight = 0)
         {
             _value = value;
+            _weight = weight;
             _isVisited = false;
             _neighbors = neighbors;
         }
@@ -46,6 +52,10 @@ namespace RoutingProtocol
         {
             _neighbors.Add(vertex);
             vertex.AddEdgeBack(this);
+        }
+        public void AddWeightedEdge(WeightedEdge<T> edge)
+        {
+            _edges.Add(edge);
         }
 
         public void AddEdges(List<Vertex<T>> newNeighbors)
@@ -73,11 +83,6 @@ namespace RoutingProtocol
         }
 
 
-        public void Reach(Vertex<T> vertex)
-        {
-
-
-        }
 
         public override string ToString()
         {
@@ -93,6 +98,11 @@ namespace RoutingProtocol
             return allNeighbors.ToString();
 
         }
+
+    }
+
+    internal class List<T1, T2>
+    {
 
     }
 }
