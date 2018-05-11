@@ -78,6 +78,7 @@ namespace RoutingProtocol
 
         public void AddWeightedEdge(Vertex<T> edge, int weight = 0)
         {
+            AddEdge(edge);
             _edges.Add(new WeightedEdge<T>(this, edge, weight));
             edge.AddWeightedEdgeBack(this, weight);
 

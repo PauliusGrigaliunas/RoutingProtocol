@@ -23,7 +23,7 @@ namespace RoutingProtocol
 
             vertices[0].AddWeightedEdge(vertices[1], 2);
             vertices[0].AddWeightedEdge(vertices[2], 3);
-
+            /*
             vertices[3].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
             { vertices[0], vertices[1] , vertices[2] }
             ), new List<int>(new int[] { 2, 3, 7 }));
@@ -46,11 +46,11 @@ namespace RoutingProtocol
             {
                 Console.WriteLine(b.ToString());
             }
+            */
 
+            UndirectedGenericGraph<string> testGraph = new UndirectedGenericGraph<string>(vertices);
 
-
-
-
+            Console.WriteLine( vertices[0].ToString());
 
 
 
@@ -145,9 +145,9 @@ namespace RoutingProtocol
             Console.WriteLine();
             testGraph.BreadthFirstSearch(vertices[0]);
             Console.WriteLine();
-            testGraph.Reach(vertices[0], vertices[5]);
-            */
-
+            testGraph.Reach(vertices[0], vertices[1]);
+            
+    */
         }
     }
 }

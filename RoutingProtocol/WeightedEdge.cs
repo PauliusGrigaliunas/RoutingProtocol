@@ -23,7 +23,7 @@ namespace RoutingProtocol
             _start = start;
             _end = end;
             _weight = weight;
-            start.AddEdge(end);
+            //start.AddEdge(end);
         }
 
 
