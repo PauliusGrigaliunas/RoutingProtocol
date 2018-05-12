@@ -8,10 +8,10 @@ namespace RoutingProtocol
 {
     class WeightedEdge<T>
     {
-        int _weight;
-
+        
         Vertex<T> _start;
         Vertex<T> _end;
+        int _weight;
 
         public int Weight { get { return _weight; } }
 
@@ -23,7 +23,6 @@ namespace RoutingProtocol
             _start = start;
             _end = end;
             _weight = weight;
-            //start.AddEdge(end);
         }
 
 

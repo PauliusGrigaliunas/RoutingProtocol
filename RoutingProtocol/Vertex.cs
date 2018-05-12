@@ -68,6 +68,7 @@ namespace RoutingProtocol
 
         public void RemoveEdge(Vertex<T> vertex)
         {
+            RemoveWeightedEdge(vertex);
             _neighbors.Remove(vertex);
             vertex.RemoveEdgeBack(this);
         }
@@ -87,6 +88,7 @@ namespace RoutingProtocol
         public void AddWeightedEdges(List<Vertex<T>> edges, List<int> weights)
         {    
             for(int i = 0; i < edges.Count(); i++) {
+                AddEdge(edges[i]);
                 if (weights.Count().Equals(i)) weights.Add(0);
                 _edges.Add(new WeightedEdge<T>(this, edges[i], weights[i]));
                 edges[i].AddWeightedEdgeBack(this, weights[i]);
@@ -98,7 +100,7 @@ namespace RoutingProtocol
             _edges.Add(new WeightedEdge<T>(this, edge, weight));
         }
 
-        public void RemoveWeightedEdge(Vertex<T> vertex)
+        private void RemoveWeightedEdge(Vertex<T> vertex)
         {
             foreach(WeightedEdge<T> Edge in Edges)
                 if(Edge.End.Equals(vertex)) {

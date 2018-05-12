@@ -9,6 +9,7 @@ namespace RoutingProtocol
     class UndirectedGenericGraph<T>
     {
 
+        private Dictionary<Vertex<T>, int> memo;
         private List<Vertex<T>> vertices;
 
         int size;
@@ -28,13 +29,16 @@ namespace RoutingProtocol
             }
 
             vertices = new List<Vertex<T>>(initialSize);
-
+            memo = new Dictionary<Vertex<T>, int>(initialSize);
+            foreach (Vertex<T> vertex in vertices) memo.Add(vertex, int.MaxValue);
         }
 
         public UndirectedGenericGraph(List<Vertex<T>> initialNodes)
         {
             vertices = initialNodes;
             size = vertices.Count;
+            memo = new Dictionary<Vertex<T>, int>();
+            foreach (Vertex<T> vertex in vertices) memo.Add(vertex, int.MaxValue);
         }
 
         public void AddVertex(Vertex<T> vertex)
@@ -111,14 +115,14 @@ namespace RoutingProtocol
             RestoreGraph(root);
         }
 
-Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
+        Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
         public void Reach(Vertex<T> root, Vertex<T> vertex)
         {
             level++;
 
             if (!root.IsVisited)
             {
-                
+
                 stack.Push(root);
 
                 root.Visit();
@@ -128,28 +132,46 @@ Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
                     foreach (Vertex<T> neighbor in root.Neighbors)
                     {
                         Reach(neighbor, vertex);
-                        
+
                     }
                 }
                 else
                 {
                     foreach (Vertex<T> part in stack.Reverse())
                     {
-                        Console.Write( part.Value + " ");
+                        Console.Write(part.Value + " ");
                     }
                 }
                 stack.Pop();
             }
             level--;
+
             if (level == 0) RestoreGraph(root);
 
+        }
 
-
-            /*foreach (Vertex<T> neighbor in root.Neighbors)
+        public void Reach1(Vertex<T> root, Vertex<T> vertex)
+        {
+            if (memo.ContainsKey(root))
             {
-                if (neighbor.Equals(vertex)) Console.WriteLine("yes");
-            }*/
+                memo[root] = 0;
+                if (root == vertex) 
+                return;
+            }
+            for (int i = 1; i < Size; i++)
+            {
+                foreach (Vertex<T> neighbor in root.Neighbors)
+                {
 
+                    if (memo.ContainsKey(root))
+                    {          foreach (WeightedEdge<T> b in vertex.Edges)
+                        {
+                            Console.WriteLine(b.ToString());
+                        }
+                        memo[root] = 0;
+                    }
+                }
+            }
         }
     }
 }
