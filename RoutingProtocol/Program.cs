@@ -34,70 +34,66 @@ namespace RoutingProtocol
             //vertices[?].AddWeightedEdge(vertices[x], y);
             //vertices[?].RemoveEdge(vertices[x]);
 
-            vertices[0].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[0].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[1], vertices[2] , vertices[3], vertices[4], vertices[5]
             }
             ), new List<int>(new int[] { 2, 1, 1, 1, 1 }));
 
-            vertices[1].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[1].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[2], vertices[3], vertices[4]
             }), new List<int>(new int[] { 1, 1, 1, 1, 1 }));
 
-            vertices[2].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[2].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[3], vertices[7], vertices[8]
             }),new List<int>(new int[] { 1, 1, 1 }));
 
-            vertices[3].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[3].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[4]
             }),new List<int>(new int[] { 1 }));
 
-            vertices[5].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[5].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[6], vertices[7]
             }), new List<int>(new int[] { 1, 1 }));
 
-            vertices[7].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[7].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[10]
             }), new List<int>(new int[] { 1 }));
 
-            vertices[8].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[8].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[9], vertices[10]
             }), new List<int>(new int[] { 1, 1 }));
 
-            vertices[9].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[9].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[10]
             }), new List<int>(new int[] { 1 }));
-            vertices[10].AddWeightedEdges(new List<Vertex<string>>(new Vertex<string>[]
+            vertices[10].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[11]
             }), new List<int>(new int[] { 1 }));
 
 
 
-            foreach (Vertex <string> vertex in vertices) {
-                Console.WriteLine(vertex.ToString());
+            
+            foreach (Vertex<string> vertex in vertices)
+            {
 
-            }
-
-            foreach (Vertex<string> vertex in vertices) { 
-
-                foreach (WeightedEdge<string> b in vertex.Edges) {
-                Console.WriteLine(b.ToString());
+                foreach ( KeyValuePair<Vertex<string>, int> part in vertex.Neighbors)
+                {
+                    Console.WriteLine(vertex.Value + " " + part.Value + " " + part.Key.Value);
                 }
             }
-                
             
-            
+            //vertices[0].RemoveEdge(vertices[1]);
+
             UndirectedGenericGraph<string> testGraph = new UndirectedGenericGraph<string>(vertices);
-            
-            Console.WriteLine(vertices[0].ToString());
 
             // Check to see that all neighbors are properly set up
             foreach (Vertex<string> vertex in vertices)
@@ -111,7 +107,7 @@ namespace RoutingProtocol
             testGraph.BreadthFirstSearch(vertices[0]);
             Console.WriteLine();
             testGraph.Reach(vertices[0], vertices[1]);
-        //testGraph.Reach1(vertices[0], vertices[1]);
+            testGraph.Reach1(vertices[0], vertices[10]);
     }
 }
 }

@@ -65,9 +65,9 @@ namespace RoutingProtocol
                 Console.Write(root.Value + " ");
                 root.Visit();
 
-                foreach (Vertex<T> neighbor in root.Neighbors)
+                foreach (var neighbor in root.Neighbors)
                 {
-                    DepthFirstSearch(neighbor);
+                    DepthFirstSearch(neighbor.Key);
                 }
             }
             level--;
@@ -79,9 +79,9 @@ namespace RoutingProtocol
             if (root.IsVisited)
             {
                 root.UndoVisit();
-                foreach (Vertex<T> neighbor in root.Neighbors)
+                foreach (var neighbor in root.Neighbors)
                 {
-                    RestoreGraph(neighbor);
+                    RestoreGraph(neighbor.Key);
                 }
             }
         }
@@ -101,13 +101,13 @@ namespace RoutingProtocol
             {
                 Vertex<T> current = queue.Dequeue();
 
-                foreach (Vertex<T> neighbor in current.Neighbors)
+                foreach (var neighbor in current.Neighbors)
                 {
-                    if (!neighbor.IsVisited)
+                    if (!neighbor.Key.IsVisited)
                     {
-                        Console.Write(neighbor.Value + " ");
-                        neighbor.Visit();
-                        queue.Enqueue(neighbor);
+                        Console.Write(neighbor.Key + " ");
+                        neighbor.Key.Visit();
+                        queue.Enqueue(neighbor.Key);
                     }
                 }
             }
@@ -129,9 +129,9 @@ namespace RoutingProtocol
 
                 if (!root.Equals(vertex))
                 {
-                    foreach (Vertex<T> neighbor in root.Neighbors)
+                    foreach (var neighbor in root.Neighbors)
                     {
-                        Reach(neighbor, vertex);
+                        Reach(neighbor.Key, vertex);
 
                     }
                 }
@@ -152,26 +152,53 @@ namespace RoutingProtocol
 
         public void Reach1(Vertex<T> root, Vertex<T> vertex)
         {
+            Stack<Vertex<T>> path = new Stack<Vertex<T>>();
+            path.Push(vertex);
+
             if (memo.ContainsKey(root))
             {
                 memo[root] = 0;
-                if (root == vertex) 
-                return;
+                if (root == vertex)
+                    return;
             }
+
+            Queue<Vertex<T>> queue = new Queue<Vertex<T>>();
+
+
             for (int i = 1; i < Size; i++)
             {
-                foreach (Vertex<T> neighbor in root.Neighbors)
+                root.Visit();
+                queue.Enqueue(root);
+                int level = 1;
+                for (int j = 1; queue.Count > 0;)
                 {
+                    Vertex<T> current = queue.Dequeue(); --j;
 
-                    if (memo.ContainsKey(root))
-                    {          foreach (WeightedEdge<T> b in vertex.Edges)
+                    foreach (var neighbor in current.Neighbors)
+                    {
+                        if (!neighbor.Key.IsVisited)
                         {
-                            Console.WriteLine(b.ToString());
+                            if (neighbor.Key.Equals(vertex))
+                            {
+                                Console.WriteLine(level);
+                                path.Push(current);
+                                vertex = current;
+                            }
+                            neighbor.Key.Visit();
+                            queue.Enqueue(neighbor.Key);
                         }
-                        memo[root] = 0;
                     }
+                    if (j <= 0) { j = queue.Count; level++; }
                 }
+
+                RestoreGraph(root);
+
             }
+            foreach (var part in path)
+            {
+                Console.WriteLine(part.Value);
+            }
+            
         }
     }
 }
