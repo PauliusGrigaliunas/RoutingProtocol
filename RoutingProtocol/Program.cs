@@ -30,9 +30,7 @@ namespace RoutingProtocol
             );
 
 
-            //vertices[?].AddEdge(vertices[x]);
-            //vertices[?].AddWeightedEdge(vertices[x], y);
-            //vertices[?].RemoveEdge(vertices[x]);
+
 
             vertices[0].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
@@ -79,41 +77,25 @@ namespace RoutingProtocol
             vertices[11]
             }), new List<int>(new int[] { 1 }));
 
-
-
-            /*
-            foreach (Vertex<string> vertex in vertices)
-            {
-
-                foreach (KeyValuePair<Vertex<string>, int> part in vertex.Neighbors)
-                {
-                    Console.WriteLine(vertex.Value + " " + part.Value + " " + part.Key.Value);
-                }
-            }*/
-
-            //vertices[0].RemoveEdge(vertices[1]);
+            //vertices[5].AddEdge(vertices[8], 1);
+            //vertices[2].RemoveEdge(vertices[8]);
 
             UndirectedGenericGraph<string> testGraph = new UndirectedGenericGraph<string>(vertices);
 
-            /*
-            // Check to see that all neighbors are properly set up
-            foreach (Vertex<string> vertex in vertices)
-            {
-                Console.WriteLine(vertex.ToString());
-            }
 
-            var path = testGraph.Reach1(vertices[0], vertices[0]);
-            Console.Write( path.Count() + " " ); 
-            foreach (var part in path)
-                Console.Write(part.Value + " ");
-            Console.WriteLine();
+            //testGraph.DepthFirstSearch(vertices[11]);
+            //testGraph.BreadthFirstSearch(vertices[11]);
 
-            foreach (KeyValuePair<Vertex<string>, int> nei in vertices[0].Neighbors)
-            {
-                Console.WriteLine();
-            }*/
+            //foreach (Vertex<string> vertex in vertices)
+            //    Console.WriteLine(vertex.ToString());
 
-            testGraph.Reach1(vertices[0], vertices[5]);
+            Console.WriteLine("-------------------------------");
+
+            testGraph.AdressReach(vertices[0], vertices[9]);
+            Console.Write(testGraph.ToString());
+            Console.WriteLine("-------------------------------");
+            testGraph.AddressTable(vertices[0]);
+
         }
     }
 }

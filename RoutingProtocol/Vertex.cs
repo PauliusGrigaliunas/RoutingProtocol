@@ -71,15 +71,12 @@ namespace RoutingProtocol
             StringBuilder allNeighbors = new StringBuilder("");
             allNeighbors.Append(_value + ": ");
 
-            //foreach(var in _neighbors)
             foreach (var neighbor in _neighbors)
             {
                 allNeighbors.Append(neighbor.Key.Value + " (" + neighbor.Value + "), ");
             }
 
             return allNeighbors.ToString();
-
-
 
         }
 

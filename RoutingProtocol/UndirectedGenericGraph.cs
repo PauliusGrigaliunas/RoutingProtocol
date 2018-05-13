@@ -6,34 +6,13 @@ using System.Threading.Tasks;
 
 namespace RoutingProtocol
 {
-    public struct Chain<T>
-    {
-        T _value;
-        private Vertex<T> _vertex;
-        private int _weight;
-        private List<Vertex<T>> _path;
-
-        public T Value { get { return _value; } set { _value = value; } }
-        public Vertex<T> Vertex { get { return _vertex; } set { _vertex = value; } }
-        public int Weight { get { return _weight; } set { _weight = value; } }
-        public List<Vertex<T>> Path { get { return _path; } set { _path = value; } }
-
-        public Chain(Vertex<T> vertex, int weight, List<Vertex<T>> path) : this()
-        {
-            _vertex = vertex;
-            _weight = weight;
-            _path.AddRange(path);
-        }
-    }
-
     class UndirectedGenericGraph<T>
     {
-
-        public List<Chain<T>> chain = new List<Chain<T>>();
 
         private Dictionary<Vertex<T>, int> memo;
         private Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> memory;
         private List<Vertex<T>> vertices;
+        private List<Vertex<T>> answer = new List<Vertex<T>>();
 
         int size;
 
@@ -100,7 +79,11 @@ namespace RoutingProtocol
                 }
             }
             level--;
-            if (level == 0) RestoreGraph(root);
+            if (level == 0)
+            {
+                RestoreGraph(root);
+                Console.WriteLine();
+            }
         }
 
         private void RestoreGraph(Vertex<T> root)
@@ -114,8 +97,6 @@ namespace RoutingProtocol
                 }
             }
         }
-
-
 
 
         public void BreadthFirstSearch(Vertex<T> root)
@@ -134,54 +115,18 @@ namespace RoutingProtocol
                 {
                     if (!neighbor.Key.IsVisited)
                     {
-                        Console.Write(neighbor.Key + " ");
+                        Console.Write(neighbor.Key.Value + " ");
                         neighbor.Key.Visit();
                         queue.Enqueue(neighbor.Key);
                     }
                 }
             }
-
+            Console.WriteLine();
             RestoreGraph(root);
         }
-        /*
-        Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
-        public void Reach(Vertex<T> root, Vertex<T> vertex)
-        {
-            level++;
-
-            if (!root.IsVisited)
-            {
-
-                stack.Push(root);
-
-                root.Visit();
-
-                if (!root.Equals(vertex))
-                {
-                    foreach (var neighbor in root.Neighbors)
-                    {
-                        Reach(neighbor.Key, vertex);
-
-                    }
-                }
-                else
-                {
-                    foreach (Vertex<T> part in stack.Reverse())
-                    {
-                        Console.Write(part.Value + " ");
-                    }
-                }
-                stack.Pop();
-            }
-            level--;
-
-            if (level == 0) RestoreGraph(root);
-
-        }*/
 
 
-
-        public List<Vertex<T>> Reach2(Vertex<T> root, Vertex<T> vertex)
+        public List<Vertex<T>> Reach(Vertex<T> root, Vertex<T> vertex)
         {
 
             List<Vertex<T>> path = new List<Vertex<T>>();
@@ -217,25 +162,20 @@ namespace RoutingProtocol
             return null;
         }
 
+        private void Search (Vertex<T> root) {
 
-        public List<Vertex<T>> Reach1(Vertex<T> root, Vertex<T> vertex)
-        {
-
-             List<Vertex<T>> path = new  List<Vertex<T>>();
+            List<Vertex<T>> path = new List<Vertex<T>>();
             path.Add(root);
-
 
             memory[root] = new Tuple<int, List<Vertex<T>>>(0, path);
 
-            Console.WriteLine(memory[root].Weight);
-
-            Queue<KeyValuePair<Vertex<T>, int>> queue = new Queue<KeyValuePair<Vertex<T>, int>>();            
+            Queue<KeyValuePair<Vertex<T>, int>> queue = new Queue<KeyValuePair<Vertex<T>, int>>();
 
 
             queue.Enqueue(new KeyValuePair<Vertex<T>, int>(root, 0));
 
             while (queue.Count > 0)
-            {     
+            {
 
                 KeyValuePair<Vertex<T>, int> current = queue.Dequeue();
 
@@ -256,20 +196,46 @@ namespace RoutingProtocol
                 }
             }
 
-
-            foreach (var m in memory)
-            {
-                Console.WriteLine(m.Key.Value + " " + m.Value.Weight);
-                foreach (var n in m.Value.Value)
-                {
-                    Console.WriteLine(" ++++" + n.Value + " ");
-                }
-            }
-
-            Console.WriteLine();
-
-            return null;
+        }
+        public List<Vertex<T>> AdressReach(Vertex<T> root, Vertex<T> vertex)
+        {
+            Search(root);
+            answer = memory[vertex].Value;
+            return memory[vertex].Value;
         }
 
+
+        public void AddressTable(Vertex<T> root)
+        {
+            Search(root);
+
+            foreach (var mem in memory) {
+                Console.WriteLine(root.Value + " --- (" + mem.Value.Weight + ") ---> " + mem.Key.Value);
+                foreach (var val in mem.Value.Value)
+                    Console.Write(val.Value + "  :: ");
+                Console.WriteLine("\n");
+            }
+            
+        }
+
+        public override string ToString()
+        {
+            try
+            {
+                var last = answer.Count - 1;
+                StringBuilder stringBuilder = new StringBuilder("");
+                stringBuilder.AppendLine(answer[0].Value + " --- (" + memory[answer[last]].Weight + ") ---> " + answer[last].Value);
+                foreach (var ans in answer)
+                {
+                    stringBuilder.Append(ans.Value + "  ::  ");
+                }
+                stringBuilder.AppendLine();
+
+                return stringBuilder.ToString();
+            }
+            catch (Exception) { 
+            return "nebuvo bandyta prisijungti! \n";};
+
+        }
     }
 }
