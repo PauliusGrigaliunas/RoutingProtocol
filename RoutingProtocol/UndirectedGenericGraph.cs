@@ -6,10 +6,33 @@ using System.Threading.Tasks;
 
 namespace RoutingProtocol
 {
+    public struct Chain<T>
+    {
+        T _value;
+        private Vertex<T> _vertex;
+        private int _weight;
+        private List<Vertex<T>> _path;
+
+        public T Value { get { return _value; } set { _value = value; } }
+        public Vertex<T> Vertex { get { return _vertex; } set { _vertex = value; } }
+        public int Weight { get { return _weight; } set { _weight = value; } }
+        public List<Vertex<T>> Path { get { return _path; } set { _path = value; } }
+
+        public Chain(Vertex<T> vertex, int weight, List<Vertex<T>> path) : this()
+        {
+            _vertex = vertex;
+            _weight = weight;
+            _path.AddRange(path);
+        }
+    }
+
     class UndirectedGenericGraph<T>
     {
 
+        public List<Chain<T>> chain = new List<Chain<T>>();
+
         private Dictionary<Vertex<T>, int> memo;
+        private Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> memory;
         private List<Vertex<T>> vertices;
 
         int size;
@@ -31,6 +54,9 @@ namespace RoutingProtocol
             vertices = new List<Vertex<T>>(initialSize);
             memo = new Dictionary<Vertex<T>, int>(initialSize);
             foreach (Vertex<T> vertex in vertices) memo.Add(vertex, int.MaxValue);
+
+            memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(initialSize);
+            foreach (Vertex<T> vertex in vertices) memory.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));
         }
 
         public UndirectedGenericGraph(List<Vertex<T>> initialNodes)
@@ -39,6 +65,9 @@ namespace RoutingProtocol
             size = vertices.Count;
             memo = new Dictionary<Vertex<T>, int>();
             foreach (Vertex<T> vertex in vertices) memo.Add(vertex, int.MaxValue);
+
+            memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
+            foreach (Vertex<T> vertex in vertices) memory.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));
         }
 
         public void AddVertex(Vertex<T> vertex)
@@ -114,7 +143,7 @@ namespace RoutingProtocol
 
             RestoreGraph(root);
         }
-
+        /*
         Stack<Vertex<T>> stack = new Stack<Vertex<T>>();
         public void Reach(Vertex<T> root, Vertex<T> vertex)
         {
@@ -148,57 +177,99 @@ namespace RoutingProtocol
 
             if (level == 0) RestoreGraph(root);
 
-        }
+        }*/
 
-        public void Reach1(Vertex<T> root, Vertex<T> vertex)
+
+
+        public List<Vertex<T>> Reach2(Vertex<T> root, Vertex<T> vertex)
         {
-            Stack<Vertex<T>> path = new Stack<Vertex<T>>();
-            path.Push(vertex);
 
-            if (memo.ContainsKey(root))
+            List<Vertex<T>> path = new List<Vertex<T>>();
+            int weight = 0;
+            memo[root] = 0;
+            path.Add(root);
+
+
+            Queue<KeyValuePair<Vertex<T>, int>> queue = new Queue<KeyValuePair<Vertex<T>, int>>();
+            queue.Enqueue(new KeyValuePair<Vertex<T>, int>(root, weight));
+
+
+            while (queue.Count > 0)
             {
-                memo[root] = 0;
-                if (root == vertex)
-                    return;
-            }
 
-            Queue<Vertex<T>> queue = new Queue<Vertex<T>>();
+                KeyValuePair<Vertex<T>, int> current = queue.Dequeue();
 
-
-            for (int i = 1; i < Size; i++)
-            {
-                root.Visit();
-                queue.Enqueue(root);
-                int level = 1;
-                for (int j = 1; queue.Count > 0;)
+                foreach (var part in current.Key.Neighbors)
                 {
-                    Vertex<T> current = queue.Dequeue(); --j;
 
-                    foreach (var neighbor in current.Neighbors)
+                    if (memo[part.Key] > part.Value + current.Value)
                     {
-                        if (!neighbor.Key.IsVisited)
-                        {
-                            if (neighbor.Key.Equals(vertex))
-                            {
-                                Console.WriteLine(level);
-                                path.Push(current);
-                                vertex = current;
-                            }
-                            neighbor.Key.Visit();
-                            queue.Enqueue(neighbor.Key);
-                        }
+                        memo[part.Key] = part.Value + current.Value;
+                        queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
                     }
-                    if (j <= 0) { j = queue.Count; level++; }
                 }
-
-                RestoreGraph(root);
-
             }
-            foreach (var part in path)
-            {
-                Console.WriteLine(part.Value);
-            }
-            
+
+
+            foreach (var m in memo) Console.WriteLine(m.Key.Value + " " + m.Value);
+            Console.WriteLine();
+
+            return null;
         }
+
+
+        public List<Vertex<T>> Reach1(Vertex<T> root, Vertex<T> vertex)
+        {
+
+             List<Vertex<T>> path = new  List<Vertex<T>>();
+            path.Add(root);
+
+
+            memory[root] = new Tuple<int, List<Vertex<T>>>(0, path);
+
+            Console.WriteLine(memory[root].Weight);
+
+            Queue<KeyValuePair<Vertex<T>, int>> queue = new Queue<KeyValuePair<Vertex<T>, int>>();            
+
+
+            queue.Enqueue(new KeyValuePair<Vertex<T>, int>(root, 0));
+
+            while (queue.Count > 0)
+            {     
+
+                KeyValuePair<Vertex<T>, int> current = queue.Dequeue();
+
+                foreach (var part in current.Key.Neighbors)
+                {
+                    if (memory[part.Key].Weight > part.Value + current.Value)
+                    {
+                        memory[part.Key].Weight = part.Value + current.Value;
+
+                        List<Vertex<T>> pathe = new List<Vertex<T>>();
+                        pathe.AddRange(memory[current.Key].Value);
+                        pathe.Add(part.Key);
+                        memory[part.Key].Value = pathe;
+
+
+                        queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
+                    }
+                }
+            }
+
+
+            foreach (var m in memory)
+            {
+                Console.WriteLine(m.Key.Value + " " + m.Value.Weight);
+                foreach (var n in m.Value.Value)
+                {
+                    Console.WriteLine(" ++++" + n.Value + " ");
+                }
+            }
+
+            Console.WriteLine();
+
+            return null;
+        }
+
     }
 }

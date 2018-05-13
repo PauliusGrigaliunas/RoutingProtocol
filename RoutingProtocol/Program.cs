@@ -48,12 +48,12 @@ namespace RoutingProtocol
             vertices[2].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[3], vertices[7], vertices[8]
-            }),new List<int>(new int[] { 1, 1, 1 }));
+            }), new List<int>(new int[] { 1, 1, 1 }));
 
             vertices[3].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
             vertices[4]
-            }),new List<int>(new int[] { 1 }));
+            }), new List<int>(new int[] { 1 }));
 
             vertices[5].AddEdges(new List<Vertex<string>>(new Vertex<string>[]
             {
@@ -81,33 +81,39 @@ namespace RoutingProtocol
 
 
 
-            
+            /*
             foreach (Vertex<string> vertex in vertices)
             {
 
-                foreach ( KeyValuePair<Vertex<string>, int> part in vertex.Neighbors)
+                foreach (KeyValuePair<Vertex<string>, int> part in vertex.Neighbors)
                 {
                     Console.WriteLine(vertex.Value + " " + part.Value + " " + part.Key.Value);
                 }
-            }
-            
+            }*/
+
             //vertices[0].RemoveEdge(vertices[1]);
 
             UndirectedGenericGraph<string> testGraph = new UndirectedGenericGraph<string>(vertices);
 
+            /*
             // Check to see that all neighbors are properly set up
             foreach (Vertex<string> vertex in vertices)
             {
                 Console.WriteLine(vertex.ToString());
             }
-            
-            // Test searching algorithms
-            testGraph.DepthFirstSearch(vertices[0]);
+
+            var path = testGraph.Reach1(vertices[0], vertices[0]);
+            Console.Write( path.Count() + " " ); 
+            foreach (var part in path)
+                Console.Write(part.Value + " ");
             Console.WriteLine();
-            testGraph.BreadthFirstSearch(vertices[0]);
-            Console.WriteLine();
-            testGraph.Reach(vertices[0], vertices[1]);
-            testGraph.Reach1(vertices[0], vertices[10]);
+
+            foreach (KeyValuePair<Vertex<string>, int> nei in vertices[0].Neighbors)
+            {
+                Console.WriteLine();
+            }*/
+
+            testGraph.Reach1(vertices[0], vertices[5]);
+        }
     }
-}
 }

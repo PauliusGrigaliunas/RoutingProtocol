@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RoutingProtocol
 {
-    class Vertex<T>
+    public class Vertex<T>
     {
         Dictionary<Vertex<T>, int> _neighbors;
         T _value;
