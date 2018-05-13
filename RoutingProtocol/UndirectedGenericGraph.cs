@@ -125,43 +125,6 @@ namespace RoutingProtocol
             RestoreGraph(root);
         }
 
-
-        public List<Vertex<T>> Reach(Vertex<T> root, Vertex<T> vertex)
-        {
-
-            List<Vertex<T>> path = new List<Vertex<T>>();
-            int weight = 0;
-            memo[root] = 0;
-            path.Add(root);
-
-
-            Queue<KeyValuePair<Vertex<T>, int>> queue = new Queue<KeyValuePair<Vertex<T>, int>>();
-            queue.Enqueue(new KeyValuePair<Vertex<T>, int>(root, weight));
-
-
-            while (queue.Count > 0)
-            {
-
-                KeyValuePair<Vertex<T>, int> current = queue.Dequeue();
-
-                foreach (var part in current.Key.Neighbors)
-                {
-
-                    if (memo[part.Key] > part.Value + current.Value)
-                    {
-                        memo[part.Key] = part.Value + current.Value;
-                        queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
-                    }
-                }
-            }
-
-
-            foreach (var m in memo) Console.WriteLine(m.Key.Value + " " + m.Value);
-            Console.WriteLine();
-
-            return null;
-        }
-
         private void Search (Vertex<T> root) {
 
             List<Vertex<T>> path = new List<Vertex<T>>();
