@@ -19,18 +19,18 @@ namespace RoutingProtocol
             get { return _connections; }
             set { _connections = value; } }
 
-
-  
-
-
+        public T Value { get { return _value; } set { _value = value; } }
+        public bool IsVisited { get { return _isVisited; } set { _isVisited = value; } }
         public int NeighborsCount { get { return _neighbors.Count; } }
+
+
 
         public Vertex(T value)
         {
             _value = value;
             _isVisited = false;
             _neighbors = new Dictionary<Vertex<T>, int>();
-
+            _connections = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
             //_connections.Add(this, new Tuple<int, List<Vertex<T>>>( _neighbors[this] , new List<Vertex<T>>()));
         }
 
@@ -40,6 +40,7 @@ namespace RoutingProtocol
             _value = value;
             _isVisited = false;
             _neighbors = neighbors.ToDictionary(x => x , x => 0);
+            _connections = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
         }
 
         public void Visit()

@@ -13,11 +13,11 @@ namespace RoutingProtocol
 
         {
             Weight = first;
-            Value = second;
+            Route = second;
         }
 
         public T Weight { get; set; }
-        public T2 Value { get; set; }
+        public T2 Route { get; set; }
 
     }
 }

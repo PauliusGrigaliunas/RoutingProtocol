@@ -9,12 +9,10 @@ namespace RoutingProtocol
     class UndirectedGenericGraph<T>
     {
 
-        //private Dictionary<Vertex<T>, int> memo;
-        public Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> memory;
         private List<Vertex<T>> vertices;
+        private Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> memory;
         private List<Vertex<T>> answer = new List<Vertex<T>>();
 
-        //public List<Vertex<T>>[] Routes;
 
 
         int size;
@@ -25,7 +23,6 @@ namespace RoutingProtocol
 
         public UndirectedGenericGraph(int initialSize)
         {
-
             size = initialSize;
 
             if (size < 0)
@@ -34,21 +31,12 @@ namespace RoutingProtocol
             }
 
             vertices = new List<Vertex<T>>(initialSize);
-
-            memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(initialSize);
-            foreach (Vertex<T> vertex in vertices) memory.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));
-
-
-
         }
 
         public UndirectedGenericGraph(List<Vertex<T>> initialNodes)
         {
             vertices = initialNodes;
             size = vertices.Count;
-            memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
-            foreach (Vertex<T> vertex in vertices) memory.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));
-
         }
 
         public void AddVertex(Vertex<T> vertex)
@@ -127,12 +115,13 @@ namespace RoutingProtocol
             RestoreGraph(root);
         }
 
-        public void Search (Vertex<T> root) {
+        public void Search(Vertex<T> root) {
 
-            List<Vertex<T>> path = new List<Vertex<T>>();
-            path.Add(root);
+            memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(size);
+            foreach (Vertex<T> vertex in vertices)
+                memory.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));
 
-            memory[root] = new Tuple<int, List<Vertex<T>>>(0, path);
+            memory[root] = new Tuple<int, List<Vertex<T>>>(0, new List<Vertex<T>>(new Vertex<T>[] { root }));
 
             Queue<KeyValuePair<Vertex<T>, int>> queue = new Queue<KeyValuePair<Vertex<T>, int>>();
 
@@ -151,73 +140,64 @@ namespace RoutingProtocol
                         memory[part.Key].Weight = part.Value + current.Value;
 
                         List<Vertex<T>> pathe = new List<Vertex<T>>();
-                        pathe.AddRange(memory[current.Key].Value);
+                        pathe.AddRange(memory[current.Key].Route);
                         pathe.Add(part.Key);
-                        memory[part.Key].Value = pathe;
-
+                        memory[part.Key].Route = pathe;
 
                         queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
                     }
                 }
-
                 
+            }
+            root.Connections = memory;
+        }
+        public void AddressMenu() {
+            foreach (var vertex in vertices)
+            {
+                Search(vertex);
+            }
+            
+            foreach (var vertex in vertices)
+            {
+                Console.WriteLine("/////////////////////"+ vertex.Value +"/////////////////////////////");
+                foreach (var connection in vertex.Connections)
+                {
+                    Console.WriteLine(vertex.Value + " --- (" + connection.Value.Weight + ") ---> " + connection.Key.Value);
+
+                    foreach (var step in connection.Value.Route)
+                        Console.Write(step.Value + " :: ");
+                        Console.WriteLine("\n");
+
+                }
             }
 
         }
-        public List<Vertex<T>> AdressReach(Vertex<T> root, Vertex<T> vertex)
-        {
-            Search(root);
-            answer = memory[vertex].Value;
-            return memory[vertex].Value;
-        }
-
-
         public void AddressTable(Vertex<T> root)
         {
             Search(root);
 
-            foreach (var mem in memory) {
-                Console.WriteLine(root.Value + " --- (" + mem.Value.Weight + ") ---> " + mem.Key.Value);
-                foreach (var val in mem.Value.Value)
-                    Console.Write(val.Value + "  :: ");
+            Console.WriteLine("/////////////////////" + root.Value + "/////////////////////////////");
+            foreach (var connection in root.Connections)
+            {
+                Console.WriteLine(root.Value + " --- (" + connection.Value.Weight + ") ---> " + connection.Key.Value);
+
+                foreach (var step in connection.Value.Route)
+                    Console.Write(step.Value + " :: ");
                 Console.WriteLine("\n");
+
             }
-            
+
         }
 
-
-        public void Menu() {
-
-            /*foreach (var vertex in vertices)
-            {
-                int i = 0;
-                
-                foreach(var route in Routes){
-                    Console.WriteLine(route.Count + "  " );
-                }
-                Console.WriteLine();
-            }*/
-            
-        }
-
-        public override string ToString()
+        public List<Vertex<T>> AdressReach(Vertex<T> root, Vertex<T> vertex)
         {
-            try
-            {
-                var last = answer.Count - 1;
-                StringBuilder stringBuilder = new StringBuilder("");
-                stringBuilder.AppendLine(answer[0].Value + " --- (" + memory[answer[last]].Weight + ") ---> " + answer[last].Value);
-                foreach (var ans in answer)
-                {
-                    stringBuilder.Append(ans.Value + "  ::  ");
-                }
-                stringBuilder.AppendLine();
+            Search(root);
 
-                return stringBuilder.ToString();
-            }
-            catch (Exception) { 
-            return "nebuvo bandyta prisijungti! \n";};
+            foreach (var step in root.Connections[vertex].Route)
+                Console.Write(step.Value + " :: ");
 
+            return root.Connections[vertex].Route;
         }
+
     }
 }

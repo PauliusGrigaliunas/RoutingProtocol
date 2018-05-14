@@ -80,7 +80,7 @@ namespace RoutingProtocol
             //vertices[5].AddEdge(vertices[8], 1);
             //vertices[2].RemoveEdge(vertices[8]);
 
-            UndirectedGenericGraph<string>[] Graph = new UndirectedGenericGraph<string>[11](vertices);
+            UndirectedGenericGraph<string> Graph = new UndirectedGenericGraph<string>(vertices);
 
 
 
@@ -98,12 +98,12 @@ namespace RoutingProtocol
             Console.WriteLine("-------------------------------");
             //testGraph.AddressTable(vertices[0]);
 
-
+            /*
             foreach (var vertex in vertices) {
                 Graph.Search(vertex);
                 
-            }
-                //testGraph.Menu();
+            }*/
+            Graph.AddressMenu();
 
         }
     }
