@@ -91,8 +91,8 @@ namespace RoutingProtocol
 
             Console.WriteLine("-------------------------------");
 
-            testGraph.AdressReach(vertices[0], vertices[9]);
-            Console.Write(testGraph.ToString());
+            //testGraph.AdressReach(vertices[0], vertices[9]);
+            //Console.Write(testGraph.ToString());
             Console.WriteLine("-------------------------------");
             testGraph.AddressTable(vertices[0]);
 
