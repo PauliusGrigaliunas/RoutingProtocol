@@ -113,6 +113,14 @@ namespace RoutingProtocol
             RestoreGraph(root);
         }
 
+        public void Routing()
+        {
+            foreach (var vertex in vertices)
+            {
+                Search(vertex);
+            }
+        }
+    
         public void Search(Vertex<T> root) {
 
             memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(size);
@@ -147,14 +155,12 @@ namespace RoutingProtocol
                 }
                 
             }
-            root.Connections = memory;
+          root.Connections = memory;
         }
         public void AddressMenu() {
-            foreach (var vertex in vertices)
-            {
-                Search(vertex);
-            }
-            
+
+            Routing();
+
             foreach (var vertex in vertices)
             {
                 Console.WriteLine("/////////////////////"+ vertex.Value +"/////////////////////////////");

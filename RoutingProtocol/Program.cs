@@ -82,11 +82,12 @@ namespace RoutingProtocol
             //vertices[2].RemoveEdge(vertices[8]);
 
             UndirectedGenericGraph<string> Graph = new UndirectedGenericGraph<string>(vertices);
+            new Cycle<string>(Graph, vertices).Runner();
 
-            Task taskA = new Task(() => Graph = null);
 
+            /*
             Graph.ClearConnectionRoutes();
-            //Graph.AddressMenu();
+            Graph.AddressMenu();
 
             vertices[0].RemoveEdge(vertices[1]);
             vertices[0].RemoveEdge(vertices[2]);
@@ -116,12 +117,9 @@ namespace RoutingProtocol
                 Graph.Search(vertex);
                 
             }*/
-            Graph.AddressMenu();
-        }
+            /*Graph.AddressMenu();}*/
 
-       // void Doin()
-        //{
-        //    Graph = null;
-        //}
+
+        }
     }
 }
