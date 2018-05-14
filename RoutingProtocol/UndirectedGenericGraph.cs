@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace RoutingProtocol
 {
-    class UndirectedGenericGraph<T>
+    public class UndirectedGenericGraph<T>
     {
 
         private List<Vertex<T>> vertices;
         private Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> memory;
         private List<Vertex<T>> answer = new List<Vertex<T>>();
-
-
 
         int size;
 
@@ -199,5 +197,12 @@ namespace RoutingProtocol
             return root.Connections[vertex].Route;
         }
 
+        public void ClearConnectionRoutes()
+        {
+            foreach (var vertex in vertices)               
+            {
+                vertex.RemoveConnections();
+            }
+        }
     }
 }

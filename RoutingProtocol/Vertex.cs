@@ -75,6 +75,11 @@ namespace RoutingProtocol
             vertex._neighbors.Remove(this);
 
         }
+        public void RemoveConnections()
+        {
+            _connections.Clear();
+            _connections = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
+        } 
 
         public override string ToString()
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RoutingProtocol
@@ -82,7 +83,19 @@ namespace RoutingProtocol
 
             UndirectedGenericGraph<string> Graph = new UndirectedGenericGraph<string>(vertices);
 
+            Task taskA = new Task(() => Graph = null);
 
+            Graph.ClearConnectionRoutes();
+            //Graph.AddressMenu();
+
+            vertices[0].RemoveEdge(vertices[1]);
+            vertices[0].RemoveEdge(vertices[2]);
+            vertices[0].RemoveEdge(vertices[3]);
+            vertices[0].RemoveEdge(vertices[4]);
+            vertices[0].RemoveEdge(vertices[5]);
+
+            Graph.ClearConnectionRoutes();
+            Graph.AddressMenu();
 
 
             //testGraph.DepthFirstSearch(vertices[11]);
@@ -104,7 +117,11 @@ namespace RoutingProtocol
                 
             }*/
             Graph.AddressMenu();
-
         }
+
+       // void Doin()
+        //{
+        //    Graph = null;
+        //}
     }
 }
