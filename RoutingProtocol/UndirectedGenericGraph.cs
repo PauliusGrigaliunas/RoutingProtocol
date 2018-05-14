@@ -9,10 +9,13 @@ namespace RoutingProtocol
     class UndirectedGenericGraph<T>
     {
 
-        private Dictionary<Vertex<T>, int> memo;
-        private Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> memory;
+        //private Dictionary<Vertex<T>, int> memo;
+        public Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> memory;
         private List<Vertex<T>> vertices;
         private List<Vertex<T>> answer = new List<Vertex<T>>();
+
+        //public List<Vertex<T>>[] Routes;
+
 
         int size;
 
@@ -31,22 +34,21 @@ namespace RoutingProtocol
             }
 
             vertices = new List<Vertex<T>>(initialSize);
-            memo = new Dictionary<Vertex<T>, int>(initialSize);
-            foreach (Vertex<T> vertex in vertices) memo.Add(vertex, int.MaxValue);
 
             memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(initialSize);
             foreach (Vertex<T> vertex in vertices) memory.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));
+
+
+
         }
 
         public UndirectedGenericGraph(List<Vertex<T>> initialNodes)
         {
             vertices = initialNodes;
             size = vertices.Count;
-            memo = new Dictionary<Vertex<T>, int>();
-            foreach (Vertex<T> vertex in vertices) memo.Add(vertex, int.MaxValue);
-
             memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
             foreach (Vertex<T> vertex in vertices) memory.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));
+
         }
 
         public void AddVertex(Vertex<T> vertex)
@@ -125,7 +127,7 @@ namespace RoutingProtocol
             RestoreGraph(root);
         }
 
-        private void Search (Vertex<T> root) {
+        public void Search (Vertex<T> root) {
 
             List<Vertex<T>> path = new List<Vertex<T>>();
             path.Add(root);
@@ -157,6 +159,8 @@ namespace RoutingProtocol
                         queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
                     }
                 }
+
+                
             }
 
         }
@@ -178,6 +182,21 @@ namespace RoutingProtocol
                     Console.Write(val.Value + "  :: ");
                 Console.WriteLine("\n");
             }
+            
+        }
+
+
+        public void Menu() {
+
+            /*foreach (var vertex in vertices)
+            {
+                int i = 0;
+                
+                foreach(var route in Routes){
+                    Console.WriteLine(route.Count + "  " );
+                }
+                Console.WriteLine();
+            }*/
             
         }
 

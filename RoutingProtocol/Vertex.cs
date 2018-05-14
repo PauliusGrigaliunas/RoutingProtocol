@@ -9,13 +9,20 @@ namespace RoutingProtocol
     public class Vertex<T>
     {
         Dictionary<Vertex<T>, int> _neighbors;
+        Dictionary<Vertex<T>, Tuple< int, List<Vertex<T>>>> _connections;
         T _value;
         bool _isVisited;
 
         
         public Dictionary<Vertex<T>, int> Neighbors { get { return _neighbors; } set { _neighbors = value; } }
-        public T Value { get { return _value; } set { _value = value; } }
-        public bool IsVisited { get { return _isVisited; } set { _isVisited = value; } }
+        public Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> Connections {
+            get { return _connections; }
+            set { _connections = value; } }
+
+
+  
+
+
         public int NeighborsCount { get { return _neighbors.Count; } }
 
         public Vertex(T value)
@@ -23,6 +30,8 @@ namespace RoutingProtocol
             _value = value;
             _isVisited = false;
             _neighbors = new Dictionary<Vertex<T>, int>();
+
+            //_connections.Add(this, new Tuple<int, List<Vertex<T>>>( _neighbors[this] , new List<Vertex<T>>()));
         }
 
 
@@ -46,6 +55,7 @@ namespace RoutingProtocol
         {
             _neighbors.Add(edge, weight);
             edge._neighbors.Add(this, weight);
+
         }
 
         public void AddEdges(List<Vertex<T>> edges, List<int> weights)
@@ -54,16 +64,16 @@ namespace RoutingProtocol
             {
                 _neighbors.Add(edges[i], weights[i]);
                 edges[i]._neighbors.Add(this, weights[i]);
+
             }
         }
 
         public void RemoveEdge(Vertex<T> vertex)
         {
-                Neighbors.Remove(vertex);
-            vertex.Neighbors.Remove(this);
+            _neighbors.Remove(vertex);
+            vertex._neighbors.Remove(this);
 
         }
-
 
         public override string ToString()
         {
