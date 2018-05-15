@@ -26,20 +26,10 @@ namespace RoutingProtocol
 
         public void Loop()
         {
-            _graph.RebootConnectionRoutes();
-            _graph.Routing();
-
-            Thread.Sleep(2000);
-
-            _vertices[0].RemoveEdge(_vertices[1]);
-            _vertices[0].RemoveEdge(_vertices[2]);
-            _vertices[0].RemoveEdge(_vertices[3]);
-            _vertices[0].RemoveEdge(_vertices[4]);
-            _vertices[0].RemoveEdge(_vertices[5]);
-
             while (true)
             {
                 _graph.RebootConnectionRoutes();
+                _graph.AddressMenu(); ;
                 Thread.Sleep(2000);
             }
 

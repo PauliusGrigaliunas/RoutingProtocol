@@ -122,10 +122,9 @@ namespace RoutingProtocol
                 Search(vertex);
             }
         }
-
+        static int g = 0;
         public void Search(Vertex<T> root)
         {
-
 
             memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(size);
             foreach (Vertex<T> vertex in vertices)
@@ -138,6 +137,9 @@ namespace RoutingProtocol
 
             queue.Enqueue(new KeyValuePair<Vertex<T>, int>(root, 0));
 
+            g++;
+            Console.WriteLine("aaa" + g);
+
             while (queue.Count > 0)
             {
 
@@ -145,7 +147,7 @@ namespace RoutingProtocol
 
                 foreach (var part in current.Key.Connections)
                 {
-                    if (memory[part.Key].Weight > part.Value.Weight + current.Value)
+                    if (memory[part.Key].Weight > part.Value.Weight + current.Value && part.Value.Weight < int.MaxValue)
                     {
                         memory[part.Key].Weight = part.Value.Weight + current.Value;
 
