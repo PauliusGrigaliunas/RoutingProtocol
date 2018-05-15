@@ -82,13 +82,12 @@ namespace RoutingProtocol
             //vertices[2].RemoveEdge(vertices[8]);
 
             UndirectedGenericGraph<string> Graph = new UndirectedGenericGraph<string>(vertices);
-            new Cycle<string>(Graph, vertices).Runner();
+            //new Cycle<string>(Graph, vertices).Runner();
 
 
-            /*
-            Graph.ClearConnectionRoutes();
+            Graph.RebootConnectionRoutes();
             Graph.AddressMenu();
-
+/*
             vertices[0].RemoveEdge(vertices[1]);
             vertices[0].RemoveEdge(vertices[2]);
             vertices[0].RemoveEdge(vertices[3]);

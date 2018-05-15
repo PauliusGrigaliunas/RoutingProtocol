@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RoutingProtocol
 {
@@ -29,12 +26,17 @@ namespace RoutingProtocol
             }
 
             vertices = new List<Vertex<T>>(initialSize);
+
+ 
+
         }
 
         public UndirectedGenericGraph(List<Vertex<T>> initialNodes)
         {
             vertices = initialNodes;
             size = vertices.Count;
+
+
         }
 
         public void AddVertex(Vertex<T> vertex)
@@ -120,8 +122,10 @@ namespace RoutingProtocol
                 Search(vertex);
             }
         }
-    
-        public void Search(Vertex<T> root) {
+
+        public void Search(Vertex<T> root)
+        {
+
 
             memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(size);
             foreach (Vertex<T> vertex in vertices)
@@ -153,24 +157,25 @@ namespace RoutingProtocol
                         queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
                     }
                 }
-                
+
             }
-          root.Connections = memory;
+            root.Connections = memory;
         }
-        public void AddressMenu() {
+        public void AddressMenu()
+        {
 
             Routing();
 
             foreach (var vertex in vertices)
             {
-                Console.WriteLine("/////////////////////"+ vertex.Value +"/////////////////////////////");
+                Console.WriteLine("/////////////////////" + vertex.Value + "/////////////////////////////");
                 foreach (var connection in vertex.Connections)
                 {
                     Console.WriteLine(vertex.Value + " --- (" + connection.Value.Weight + ") ---> " + connection.Key.Value);
 
                     foreach (var step in connection.Value.Route)
                         Console.Write(step.Value + " :: ");
-                        Console.WriteLine("\n");
+                    Console.WriteLine("\n");
 
                 }
             }
@@ -203,12 +208,28 @@ namespace RoutingProtocol
             return root.Connections[vertex].Route;
         }
 
-        public void ClearConnectionRoutes()
+        public void RebootConnectionRoutes()
         {
-            foreach (var vertex in vertices)               
+            foreach (var vertex in vertices)
             {
                 vertex.RemoveConnections();
             }
+
+            foreach (var vertex in vertices)
+            {
+                vertex.Connections = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(size);
+                vertex.Connections.Add(vertex, new Tuple<int, List<Vertex<T>>>(int.MaxValue, new List<Vertex<T>>()));               
+            }
+            foreach (var vertex in vertices)
+            {
+                foreach (var neighbor in vertex.Neighbors)
+                {
+                    vertex.Connections[vertex].Weight = 0;
+
+                    vertex.Connections[neighbor.Key]= new Tuple<int, List<Vertex<T>>>( neighbor.Value , new List<Vertex<T>>(new Vertex<T>[] { vertex, neighbor.Key }));
+                }
+            }
+
         }
     }
 }

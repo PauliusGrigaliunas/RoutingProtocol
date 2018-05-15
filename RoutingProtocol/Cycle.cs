@@ -26,7 +26,7 @@ namespace RoutingProtocol
 
         public void Loop()
         {
-            _graph.ClearConnectionRoutes();
+            _graph.RebootConnectionRoutes();
             _graph.Routing();
 
             Thread.Sleep(2000);
@@ -39,7 +39,7 @@ namespace RoutingProtocol
 
             while (true)
             {
-                _graph.ClearConnectionRoutes();
+                _graph.RebootConnectionRoutes();
                 Thread.Sleep(2000);
             }
 
