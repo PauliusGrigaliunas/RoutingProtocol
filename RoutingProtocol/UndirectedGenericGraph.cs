@@ -143,18 +143,19 @@ namespace RoutingProtocol
 
                 KeyValuePair<Vertex<T>, int> current = queue.Dequeue();
 
-                foreach (var part in current.Key.Neighbors)
+                foreach (var part in current.Key.Connections)
                 {
-                    if (memory[part.Key].Weight > part.Value + current.Value)
+                    if (memory[part.Key].Weight > part.Value.Weight + current.Value)
                     {
-                        memory[part.Key].Weight = part.Value + current.Value;
+                        memory[part.Key].Weight = part.Value.Weight + current.Value;
 
-                        List<Vertex<T>> pathe = new List<Vertex<T>>();
-                        pathe.AddRange(memory[current.Key].Route);
-                        pathe.Add(part.Key);
-                        memory[part.Key].Route = pathe;
+                        List<Vertex<T>> path = new List<Vertex<T>>();
+                        path.AddRange(memory[current.Key].Route);
+                        path.RemoveAt(path.Count-1);
+                        path.AddRange(part.Value.Route);
+                        memory[part.Key].Route = path;
 
-                        queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
+                        queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value.Weight + current.Value));
                     }
                 }
 

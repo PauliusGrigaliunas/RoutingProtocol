@@ -87,35 +87,38 @@ namespace RoutingProtocol
 
             Graph.RebootConnectionRoutes();
             Graph.AddressMenu();
-/*
-            vertices[0].RemoveEdge(vertices[1]);
-            vertices[0].RemoveEdge(vertices[2]);
-            vertices[0].RemoveEdge(vertices[3]);
-            vertices[0].RemoveEdge(vertices[4]);
-            vertices[0].RemoveEdge(vertices[5]);
-
-            Graph.ClearConnectionRoutes();
-            Graph.AddressMenu();
-
-
-            //testGraph.DepthFirstSearch(vertices[11]);
-            //testGraph.BreadthFirstSearch(vertices[11]);
-
-            //foreach (Vertex<string> vertex in vertices)
-            //    Console.WriteLine(vertex.ToString());
-
-            Console.WriteLine("-------------------------------");
-
-            //testGraph.AdressReach(vertices[0], vertices[9]);
-            //Console.Write(testGraph.ToString());
-            Console.WriteLine("-------------------------------");
-            //testGraph.AddressTable(vertices[0]);
+            //Graph.RebootConnectionRoutes();
+            //Graph.AddressMenu();
 
             /*
-            foreach (var vertex in vertices) {
-                Graph.Search(vertex);
-                
-            }*/
+                        vertices[0].RemoveEdge(vertices[1]);
+                        vertices[0].RemoveEdge(vertices[2]);
+                        vertices[0].RemoveEdge(vertices[3]);
+                        vertices[0].RemoveEdge(vertices[4]);
+                        vertices[0].RemoveEdge(vertices[5]);
+
+                        Graph.ClearConnectionRoutes();
+                        Graph.AddressMenu();
+
+
+                        //testGraph.DepthFirstSearch(vertices[11]);
+                        //testGraph.BreadthFirstSearch(vertices[11]);
+
+                        //foreach (Vertex<string> vertex in vertices)
+                        //    Console.WriteLine(vertex.ToString());
+
+                        Console.WriteLine("-------------------------------");
+
+                        //testGraph.AdressReach(vertices[0], vertices[9]);
+                        //Console.Write(testGraph.ToString());
+                        Console.WriteLine("-------------------------------");
+                        //testGraph.AddressTable(vertices[0]);
+
+                        /*
+                        foreach (var vertex in vertices) {
+                            Graph.Search(vertex);
+
+                        }*/
             /*Graph.AddressMenu();}*/
 
 
