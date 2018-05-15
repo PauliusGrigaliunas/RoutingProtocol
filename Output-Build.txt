@@ -1,0 +1,3 @@
+﻿1>------ Build started: Project: RoutingProtocol, Configuration: Debug Any CPU ------
+1>  RoutingProtocol -> C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\bin\Debug\RoutingProtocol.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

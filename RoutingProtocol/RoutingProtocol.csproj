@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cycle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tuple.cs" />
     <Compile Include="UndirectedGenericGraph.cs" />
     <Compile Include="Vertex.cs" />
   </ItemGroup>

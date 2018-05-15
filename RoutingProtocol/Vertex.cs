@@ -6,23 +6,32 @@ using System.Threading.Tasks;
 
 namespace RoutingProtocol
 {
-    class Vertex<T>
+    public class Vertex<T>
     {
-
-        List<Vertex<T>> _neighbors;
+        Dictionary<Vertex<T>, int> _neighbors;
+        Dictionary<Vertex<T>, Tuple< int, List<Vertex<T>>>> _connections;
         T _value;
         bool _isVisited;
 
-        public List<Vertex<T>> Neighbors { get { return _neighbors; } set { _neighbors = value; } }
+        
+        public Dictionary<Vertex<T>, int> Neighbors { get { return _neighbors; } set { _neighbors = value; } }
+        public Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>> Connections {
+            get { return _connections; }
+            set { _connections = value; } }
+
         public T Value { get { return _value; } set { _value = value; } }
         public bool IsVisited { get { return _isVisited; } set { _isVisited = value; } }
         public int NeighborsCount { get { return _neighbors.Count; } }
+
+
 
         public Vertex(T value)
         {
             _value = value;
             _isVisited = false;
-            _neighbors = new List<Vertex<T>>();
+            _neighbors = new Dictionary<Vertex<T>, int>();
+            _connections = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
+            //_connections.Add(this, new Tuple<int, List<Vertex<T>>>( _neighbors[this] , new List<Vertex<T>>()));
         }
 
 
@@ -30,44 +39,47 @@ namespace RoutingProtocol
         {
             _value = value;
             _isVisited = false;
-            _neighbors = neighbors;
+            _neighbors = neighbors.ToDictionary(x => x , x => 0);
+            _connections = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
         }
 
         public void Visit()
         {
             _isVisited = true;
         }
-
-        public void AddEdge(Vertex<T> vertex)
+        public void UndoVisit()
         {
-            _neighbors.Add(vertex);
-            vertex.AddEdgeBack(this);
+            _isVisited = false;
         }
 
-        public void AddEdges(List<Vertex<T>> newNeighbors)
+        public void AddEdge(Vertex<T> edge, int weight = 1)
         {
-            _neighbors.AddRange(newNeighbors);
+            _neighbors.Add(edge, weight);
+            edge._neighbors.Add(this, weight);
 
-            foreach (Vertex<T> newNeighbor in newNeighbors) {
-                newNeighbor.AddEdgeBack(this);
+        }
+
+        public void AddEdges(List<Vertex<T>> edges, List<int> weights)
+        {
+            for (int i = 0; i < edges.Count(); i++)
+            {
+                _neighbors.Add(edges[i], weights[i]);
+                edges[i]._neighbors.Add(this, weights[i]);
+
             }
-        }
-        private void AddEdgeBack(Vertex<T> vertex)
-        {
-            _neighbors.Add(vertex);
         }
 
         public void RemoveEdge(Vertex<T> vertex)
         {
             _neighbors.Remove(vertex);
-            vertex.RemoveEdgeBack(this);
-        }
+            vertex._neighbors.Remove(this);
 
-        private void RemoveEdgeBack(Vertex<T> vertex)
+        }
+        public void RemoveConnections()
         {
-            _neighbors.Remove(vertex);
-        }
-
+            _connections.Clear();
+            _connections = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>();
+        } 
 
         public override string ToString()
         {
@@ -75,9 +87,9 @@ namespace RoutingProtocol
             StringBuilder allNeighbors = new StringBuilder("");
             allNeighbors.Append(_value + ": ");
 
-            foreach (Vertex<T> neighbor in _neighbors)
+            foreach (var neighbor in _neighbors)
             {
-                allNeighbors.Append(neighbor._value + "  ");
+                allNeighbors.Append(neighbor.Key.Value + " (" + neighbor.Value + "), ");
             }
 
             return allNeighbors.ToString();
