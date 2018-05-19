@@ -11,7 +11,7 @@ namespace RoutingProtocol
     {
         List<Vertex<T>> _vertices;
         UndirectedGenericGraph<T> _graph;
-
+        System.IO.StreamWriter file;
 
         public Cycle(UndirectedGenericGraph<T> graph, List<Vertex<T>> vertices)
         {
@@ -26,10 +26,18 @@ namespace RoutingProtocol
 
         public void Loop()
         {
+            bool overWrite = false;
             while (true)
             {
                 _graph.RebootConnectionRoutes();
-                _graph.AddressMenu(); ;
+
+
+                using (file = new System.IO.StreamWriter(@"C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\Routes.txt", overWrite))
+                {
+                    file.WriteLine("time: " + DateTime.Now);
+                    file.Write(_graph.AddressMenu());
+                }
+                overWrite = true;
                 Thread.Sleep(2000);
             }
 

@@ -5,10 +5,10 @@ C:\Users\Paulius\source\repos\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingP
 C:\Users\Paulius\source\repos\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.csproj.CoreCompileInputs.cache
 C:\Users\Paulius\source\repos\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.exe
 C:\Users\Paulius\source\repos\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.pdb
-C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.csprojResolveAssemblyReference.cache
 C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.csproj.CoreCompileInputs.cache
 C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.exe
 C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.pdb
 C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\bin\Debug\RoutingProtocol.exe.config
 C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\bin\Debug\RoutingProtocol.exe
 C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\bin\Debug\RoutingProtocol.pdb
+C:\Users\Paulius\Documents\GitHub\RoutingProtocol\RoutingProtocol\obj\Debug\RoutingProtocol.csprojAssemblyReference.cache

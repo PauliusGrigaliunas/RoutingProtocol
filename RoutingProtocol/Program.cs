@@ -84,37 +84,20 @@ namespace RoutingProtocol
             UndirectedGenericGraph<string> Graph = new UndirectedGenericGraph<string>(vertices);
             new Cycle<string>(Graph, vertices).Runner();
 
+
+            Console.WriteLine(Graph.AdressReach(vertices[5], vertices[6]));
+
             Thread.Sleep(100);
 
-            
-                        vertices[5].RemoveEdge(vertices[6]);
-                       /* vertices[0].RemoveEdge(vertices[2]);
-                        vertices[0].RemoveEdge(vertices[3]);
-                        vertices[0].RemoveEdge(vertices[4]);
-                        vertices[0].RemoveEdge(vertices[5]);*/
-            
-                        /*Graph.ClearConnectionRoutes();
-                        Graph.AddressMenu();
+            vertices[5].RemoveEdge(vertices[6]);
 
+            Thread.Sleep(100);
 
-                        //testGraph.DepthFirstSearch(vertices[11]);
-                        //testGraph.BreadthFirstSearch(vertices[11]);
+            Console.WriteLine(Graph.AdressReach(vertices[6], vertices[5]));
 
-                        //foreach (Vertex<string> vertex in vertices)
-                        //    Console.WriteLine(vertex.ToString());
+            Thread.Sleep(2000);
 
-                        Console.WriteLine("-------------------------------");
-
-                        //testGraph.AdressReach(vertices[0], vertices[9]);
-                        //Console.Write(testGraph.ToString());
-                        Console.WriteLine("-------------------------------");
-                        //testGraph.AddressTable(vertices[0]);
-
-                        /*
-                        foreach (var vertex in vertices) {
-                            Graph.Search(vertex);
-
-                        }*/
+            Console.WriteLine(Graph.AdressReach(vertices[6], vertices[5]));
 
 
 
