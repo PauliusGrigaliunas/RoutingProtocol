@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace RoutingProtocol
 {
@@ -122,10 +123,8 @@ namespace RoutingProtocol
                 Search(vertex);
             }
         }
-
         public void Search(Vertex<T> root)
         {
-
 
             memory = new Dictionary<Vertex<T>, Tuple<int, List<Vertex<T>>>>(size);
             foreach (Vertex<T> vertex in vertices)
@@ -143,69 +142,74 @@ namespace RoutingProtocol
 
                 KeyValuePair<Vertex<T>, int> current = queue.Dequeue();
 
-                foreach (var part in current.Key.Neighbors)
+                foreach (var part in current.Key.Connections)
                 {
-                    if (memory[part.Key].Weight > part.Value + current.Value)
+                    if (memory[part.Key].Weight > part.Value.Weight + current.Value && part.Value.Weight < int.MaxValue)
                     {
-                        memory[part.Key].Weight = part.Value + current.Value;
+                        memory[part.Key].Weight = part.Value.Weight + current.Value;
 
-                        List<Vertex<T>> pathe = new List<Vertex<T>>();
-                        pathe.AddRange(memory[current.Key].Route);
-                        pathe.Add(part.Key);
-                        memory[part.Key].Route = pathe;
+                        List<Vertex<T>> path = new List<Vertex<T>>();
+                        path.AddRange(memory[current.Key].Route);
+                        path.RemoveAt(path.Count-1);
+                        path.AddRange(part.Value.Route);
+                        memory[part.Key].Route = path;
 
-                        queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value + current.Value));
+                        queue.Enqueue(new KeyValuePair<Vertex<T>, int>(part.Key, part.Value.Weight + current.Value));
                     }
                 }
 
             }
             root.Connections = memory;
         }
-        public void AddressMenu()
+        public string AddressMenu()
         {
-
             Routing();
+            StringBuilder stringBuilder = new StringBuilder("");
 
             foreach (var vertex in vertices)
             {
-                Console.WriteLine("/////////////////////" + vertex.Value + "/////////////////////////////");
+                stringBuilder.AppendLine("/////////////////////" + vertex.Value + "/////////////////////////////");
                 foreach (var connection in vertex.Connections)
                 {
-                    Console.WriteLine(vertex.Value + " --- (" + connection.Value.Weight + ") ---> " + connection.Key.Value);
+                    stringBuilder.AppendLine(vertex.Value + " --- (" + connection.Value.Weight + ") ---> " + connection.Key.Value);
 
                     foreach (var step in connection.Value.Route)
-                        Console.Write(step.Value + " :: ");
-                    Console.WriteLine("\n");
+                        stringBuilder.Append(step.Value + " :: ");
+                    stringBuilder.AppendLine("\n");
 
                 }
             }
-
+            return stringBuilder.ToString();
         }
-        public void AddressTable(Vertex<T> root)
+        public string AddressTable(Vertex<T> root)
         {
             Search(root);
+            StringBuilder stringBuilder = new StringBuilder("");
 
-            Console.WriteLine("/////////////////////" + root.Value + "/////////////////////////////");
+            stringBuilder.AppendLine("/////////////////////" + root.Value + "/////////////////////////////");
             foreach (var connection in root.Connections)
             {
-                Console.WriteLine(root.Value + " --- (" + connection.Value.Weight + ") ---> " + connection.Key.Value);
+                stringBuilder.AppendLine(root.Value + " --- (" + connection.Value.Weight + ") ---> " + connection.Key.Value);
 
                 foreach (var step in connection.Value.Route)
-                    Console.Write(step.Value + " :: ");
-                Console.WriteLine("\n");
+                    stringBuilder.Append(step.Value + " :: ");
+                stringBuilder.AppendLine("\n");
 
             }
-
+            return stringBuilder.ToString();
         }
 
-        public List<Vertex<T>> AdressReach(Vertex<T> root, Vertex<T> vertex)
+        public string AdressReach(Vertex<T> root, Vertex<T> vertex)
         {
             Search(root);
+            StringBuilder stringBuilder = new StringBuilder("");
+
+            stringBuilder.AppendLine(root.Value + " --- (" + root.Connections[vertex].Weight + ") ---> " + vertex.Value);
 
             foreach (var step in root.Connections[vertex].Route)
-                Console.Write(step.Value + " :: ");
+                stringBuilder.Append(step.Value + " :: ");
 
-            return root.Connections[vertex].Route;
+            return stringBuilder.ToString();
         }
 
         public void RebootConnectionRoutes()
