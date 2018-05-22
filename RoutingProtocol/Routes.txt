@@ -1,4 +1,4 @@
-time: 5/19/2018 2:32:27 PM
+time: 5/21/2018 10:15:30 AM
 /////////////////////Router A/////////////////////////////
 Router A --- (0) ---> Router A
 Router A :: 
@@ -31,10 +31,10 @@ Router A --- (3) ---> Router J
 Router A :: Router C :: Router I :: Router J :: 
 
 Router A --- (3) ---> Router K
-Router A :: Router F :: Router H :: Router K :: 
+Router A :: Router C :: Router H :: Router K :: 
 
 Router A --- (4) ---> Router L
-Router A :: Router F :: Router H :: Router K :: Router L :: 
+Router A :: Router C :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router B/////////////////////////////
 Router B --- (2) ---> Router A
@@ -179,10 +179,10 @@ Router E --- (4) ---> Router J
 Router E :: Router A :: Router C :: Router I :: Router J :: 
 
 Router E --- (4) ---> Router K
-Router E :: Router A :: Router F :: Router H :: Router K :: 
+Router E :: Router A :: Router C :: Router H :: Router K :: 
 
 Router E --- (5) ---> Router L
-Router E :: Router A :: Router F :: Router H :: Router K :: Router L :: 
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router F/////////////////////////////
 Router F --- (1) ---> Router A
@@ -443,7 +443,7 @@ Router L :: Router K ::
 Router L --- (0) ---> Router L
 Router L :: 
 
-time: 5/19/2018 2:32:29 PM
+time: 5/21/2018 10:15:32 AM
 /////////////////////Router A/////////////////////////////
 Router A --- (0) ---> Router A
 Router A :: 
@@ -460,11 +460,11 @@ Router A :: Router D ::
 Router A --- (1) ---> Router E
 Router A :: Router E :: 
 
-Router A --- (1) ---> Router F
-Router A :: Router F :: 
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
 
-Router A --- (2147483647) ---> Router G
-
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router A --- (2) ---> Router H
 Router A :: Router C :: Router H :: 
@@ -498,10 +498,10 @@ Router B --- (1) ---> Router E
 Router B :: Router E :: 
 
 Router B --- (3) ---> Router F
-Router B :: Router A :: Router F :: 
+Router B :: Router C :: Router H :: Router F :: 
 
-Router B --- (2147483647) ---> Router G
-
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
 
 Router B --- (2) ---> Router H
 Router B :: Router C :: Router H :: 
@@ -535,10 +535,10 @@ Router C --- (2) ---> Router E
 Router C :: Router A :: Router E :: 
 
 Router C --- (2) ---> Router F
-Router C :: Router A :: Router F :: 
+Router C :: Router H :: Router F :: 
 
-Router C --- (2147483647) ---> Router G
-
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
 
 Router C --- (1) ---> Router H
 Router C :: Router H :: 
@@ -571,11 +571,11 @@ Router D ::
 Router D --- (1) ---> Router E
 Router D :: Router E :: 
 
-Router D --- (2) ---> Router F
-Router D :: Router A :: Router F :: 
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
 
-Router D --- (2147483647) ---> Router G
-
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
 
 Router D --- (2) ---> Router H
 Router D :: Router C :: Router H :: 
@@ -608,11 +608,11 @@ Router E :: Router D ::
 Router E --- (0) ---> Router E
 Router E :: 
 
-Router E --- (2) ---> Router F
-Router E :: Router A :: Router F :: 
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
 
-Router E --- (2147483647) ---> Router G
-
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router E --- (3) ---> Router H
 Router E :: Router A :: Router C :: Router H :: 
@@ -630,32 +630,32 @@ Router E --- (5) ---> Router L
 Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router F/////////////////////////////
-Router F --- (1) ---> Router A
-Router F :: Router A :: 
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
 
 Router F --- (3) ---> Router B
-Router F :: Router A :: Router B :: 
+Router F :: Router H :: Router C :: Router B :: 
 
 Router F --- (2) ---> Router C
-Router F :: Router A :: Router C :: 
+Router F :: Router H :: Router C :: 
 
-Router F --- (2) ---> Router D
-Router F :: Router A :: Router D :: 
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
 
-Router F --- (2) ---> Router E
-Router F :: Router A :: Router E :: 
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
 
 Router F --- (0) ---> Router F
 Router F :: 
 
-Router F --- (2147483647) ---> Router G
-
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
 
 Router F --- (1) ---> Router H
 Router F :: Router H :: 
 
 Router F --- (3) ---> Router I
-Router F :: Router A :: Router C :: Router I :: 
+Router F :: Router H :: Router C :: Router I :: 
 
 Router F --- (3) ---> Router J
 Router F :: Router H :: Router K :: Router J :: 
@@ -667,41 +667,41 @@ Router F --- (3) ---> Router L
 Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router G/////////////////////////////
-Router G --- (2147483647) ---> Router A
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
 
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
 
-Router G --- (2147483647) ---> Router B
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
 
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
 
-Router G --- (2147483647) ---> Router C
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
 
-
-Router G --- (2147483647) ---> Router D
-
-
-Router G --- (2147483647) ---> Router E
-
-
-Router G --- (2147483647) ---> Router F
-
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
 
 Router G --- (0) ---> Router G
 Router G :: 
 
-Router G --- (2147483647) ---> Router H
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
 
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
 
-Router G --- (2147483647) ---> Router I
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
 
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
 
-Router G --- (2147483647) ---> Router J
-
-
-Router G --- (2147483647) ---> Router K
-
-
-Router G --- (2147483647) ---> Router L
-
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router H/////////////////////////////
 Router H --- (2) ---> Router A
@@ -722,8 +722,8 @@ Router H :: Router C :: Router A :: Router E ::
 Router H --- (1) ---> Router F
 Router H :: Router F :: 
 
-Router H --- (2147483647) ---> Router G
-
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
 
 Router H --- (0) ---> Router H
 Router H :: 
@@ -757,10 +757,10 @@ Router I --- (3) ---> Router E
 Router I :: Router C :: Router A :: Router E :: 
 
 Router I --- (3) ---> Router F
-Router I :: Router C :: Router A :: Router F :: 
+Router I :: Router C :: Router H :: Router F :: 
 
-Router I --- (2147483647) ---> Router G
-
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
 
 Router I --- (2) ---> Router H
 Router I :: Router C :: Router H :: 
@@ -796,8 +796,8 @@ Router J :: Router I :: Router C :: Router A :: Router E ::
 Router J --- (3) ---> Router F
 Router J :: Router K :: Router H :: Router F :: 
 
-Router J --- (2147483647) ---> Router G
-
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
 
 Router J --- (2) ---> Router H
 Router J :: Router K :: Router H :: 
@@ -833,8 +833,8 @@ Router K :: Router H :: Router C :: Router A :: Router E ::
 Router K --- (2) ---> Router F
 Router K :: Router H :: Router F :: 
 
-Router K --- (2147483647) ---> Router G
-
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
 
 Router K --- (1) ---> Router H
 Router K :: Router H :: 
@@ -870,8 +870,8 @@ Router L :: Router K :: Router H :: Router C :: Router A :: Router E ::
 Router L --- (3) ---> Router F
 Router L :: Router K :: Router H :: Router F :: 
 
-Router L --- (2147483647) ---> Router G
-
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
 
 Router L --- (2) ---> Router H
 Router L :: Router K :: Router H :: 
@@ -888,7 +888,7 @@ Router L :: Router K ::
 Router L --- (0) ---> Router L
 Router L :: 
 
-time: 5/19/2018 2:32:31 PM
+time: 5/21/2018 10:15:34 AM
 /////////////////////Router A/////////////////////////////
 Router A --- (0) ---> Router A
 Router A :: 
@@ -905,11 +905,11 @@ Router A :: Router D ::
 Router A --- (1) ---> Router E
 Router A :: Router E :: 
 
-Router A --- (1) ---> Router F
-Router A :: Router F :: 
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
 
-Router A --- (2147483647) ---> Router G
-
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router A --- (2) ---> Router H
 Router A :: Router C :: Router H :: 
@@ -943,10 +943,10 @@ Router B --- (1) ---> Router E
 Router B :: Router E :: 
 
 Router B --- (3) ---> Router F
-Router B :: Router A :: Router F :: 
+Router B :: Router C :: Router H :: Router F :: 
 
-Router B --- (2147483647) ---> Router G
-
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
 
 Router B --- (2) ---> Router H
 Router B :: Router C :: Router H :: 
@@ -980,10 +980,10 @@ Router C --- (2) ---> Router E
 Router C :: Router A :: Router E :: 
 
 Router C --- (2) ---> Router F
-Router C :: Router A :: Router F :: 
+Router C :: Router H :: Router F :: 
 
-Router C --- (2147483647) ---> Router G
-
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
 
 Router C --- (1) ---> Router H
 Router C :: Router H :: 
@@ -1016,11 +1016,11 @@ Router D ::
 Router D --- (1) ---> Router E
 Router D :: Router E :: 
 
-Router D --- (2) ---> Router F
-Router D :: Router A :: Router F :: 
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
 
-Router D --- (2147483647) ---> Router G
-
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
 
 Router D --- (2) ---> Router H
 Router D :: Router C :: Router H :: 
@@ -1053,11 +1053,11 @@ Router E :: Router D ::
 Router E --- (0) ---> Router E
 Router E :: 
 
-Router E --- (2) ---> Router F
-Router E :: Router A :: Router F :: 
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
 
-Router E --- (2147483647) ---> Router G
-
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router E --- (3) ---> Router H
 Router E :: Router A :: Router C :: Router H :: 
@@ -1075,32 +1075,32 @@ Router E --- (5) ---> Router L
 Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router F/////////////////////////////
-Router F --- (1) ---> Router A
-Router F :: Router A :: 
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
 
 Router F --- (3) ---> Router B
-Router F :: Router A :: Router B :: 
+Router F :: Router H :: Router C :: Router B :: 
 
 Router F --- (2) ---> Router C
-Router F :: Router A :: Router C :: 
+Router F :: Router H :: Router C :: 
 
-Router F --- (2) ---> Router D
-Router F :: Router A :: Router D :: 
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
 
-Router F --- (2) ---> Router E
-Router F :: Router A :: Router E :: 
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
 
 Router F --- (0) ---> Router F
 Router F :: 
 
-Router F --- (2147483647) ---> Router G
-
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
 
 Router F --- (1) ---> Router H
 Router F :: Router H :: 
 
 Router F --- (3) ---> Router I
-Router F :: Router A :: Router C :: Router I :: 
+Router F :: Router H :: Router C :: Router I :: 
 
 Router F --- (3) ---> Router J
 Router F :: Router H :: Router K :: Router J :: 
@@ -1112,41 +1112,41 @@ Router F --- (3) ---> Router L
 Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router G/////////////////////////////
-Router G --- (2147483647) ---> Router A
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
 
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
 
-Router G --- (2147483647) ---> Router B
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
 
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
 
-Router G --- (2147483647) ---> Router C
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
 
-
-Router G --- (2147483647) ---> Router D
-
-
-Router G --- (2147483647) ---> Router E
-
-
-Router G --- (2147483647) ---> Router F
-
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
 
 Router G --- (0) ---> Router G
 Router G :: 
 
-Router G --- (2147483647) ---> Router H
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
 
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
 
-Router G --- (2147483647) ---> Router I
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
 
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
 
-Router G --- (2147483647) ---> Router J
-
-
-Router G --- (2147483647) ---> Router K
-
-
-Router G --- (2147483647) ---> Router L
-
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router H/////////////////////////////
 Router H --- (2) ---> Router A
@@ -1167,8 +1167,8 @@ Router H :: Router C :: Router A :: Router E ::
 Router H --- (1) ---> Router F
 Router H :: Router F :: 
 
-Router H --- (2147483647) ---> Router G
-
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
 
 Router H --- (0) ---> Router H
 Router H :: 
@@ -1202,10 +1202,10 @@ Router I --- (3) ---> Router E
 Router I :: Router C :: Router A :: Router E :: 
 
 Router I --- (3) ---> Router F
-Router I :: Router C :: Router A :: Router F :: 
+Router I :: Router C :: Router H :: Router F :: 
 
-Router I --- (2147483647) ---> Router G
-
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
 
 Router I --- (2) ---> Router H
 Router I :: Router C :: Router H :: 
@@ -1241,8 +1241,8 @@ Router J :: Router I :: Router C :: Router A :: Router E ::
 Router J --- (3) ---> Router F
 Router J :: Router K :: Router H :: Router F :: 
 
-Router J --- (2147483647) ---> Router G
-
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
 
 Router J --- (2) ---> Router H
 Router J :: Router K :: Router H :: 
@@ -1278,8 +1278,8 @@ Router K :: Router H :: Router C :: Router A :: Router E ::
 Router K --- (2) ---> Router F
 Router K :: Router H :: Router F :: 
 
-Router K --- (2147483647) ---> Router G
-
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
 
 Router K --- (1) ---> Router H
 Router K :: Router H :: 
@@ -1315,8 +1315,8 @@ Router L :: Router K :: Router H :: Router C :: Router A :: Router E ::
 Router L --- (3) ---> Router F
 Router L :: Router K :: Router H :: Router F :: 
 
-Router L --- (2147483647) ---> Router G
-
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
 
 Router L --- (2) ---> Router H
 Router L :: Router K :: Router H :: 
@@ -1333,7 +1333,7 @@ Router L :: Router K ::
 Router L --- (0) ---> Router L
 Router L :: 
 
-time: 5/19/2018 2:32:33 PM
+time: 5/21/2018 10:15:36 AM
 /////////////////////Router A/////////////////////////////
 Router A --- (0) ---> Router A
 Router A :: 
@@ -1350,11 +1350,11 @@ Router A :: Router D ::
 Router A --- (1) ---> Router E
 Router A :: Router E :: 
 
-Router A --- (1) ---> Router F
-Router A :: Router F :: 
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
 
-Router A --- (2147483647) ---> Router G
-
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router A --- (2) ---> Router H
 Router A :: Router C :: Router H :: 
@@ -1388,10 +1388,10 @@ Router B --- (1) ---> Router E
 Router B :: Router E :: 
 
 Router B --- (3) ---> Router F
-Router B :: Router A :: Router F :: 
+Router B :: Router C :: Router H :: Router F :: 
 
-Router B --- (2147483647) ---> Router G
-
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
 
 Router B --- (2) ---> Router H
 Router B :: Router C :: Router H :: 
@@ -1425,10 +1425,10 @@ Router C --- (2) ---> Router E
 Router C :: Router A :: Router E :: 
 
 Router C --- (2) ---> Router F
-Router C :: Router A :: Router F :: 
+Router C :: Router H :: Router F :: 
 
-Router C --- (2147483647) ---> Router G
-
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
 
 Router C --- (1) ---> Router H
 Router C :: Router H :: 
@@ -1461,11 +1461,11 @@ Router D ::
 Router D --- (1) ---> Router E
 Router D :: Router E :: 
 
-Router D --- (2) ---> Router F
-Router D :: Router A :: Router F :: 
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
 
-Router D --- (2147483647) ---> Router G
-
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
 
 Router D --- (2) ---> Router H
 Router D :: Router C :: Router H :: 
@@ -1498,11 +1498,11 @@ Router E :: Router D ::
 Router E --- (0) ---> Router E
 Router E :: 
 
-Router E --- (2) ---> Router F
-Router E :: Router A :: Router F :: 
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
 
-Router E --- (2147483647) ---> Router G
-
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router E --- (3) ---> Router H
 Router E :: Router A :: Router C :: Router H :: 
@@ -1520,32 +1520,32 @@ Router E --- (5) ---> Router L
 Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router F/////////////////////////////
-Router F --- (1) ---> Router A
-Router F :: Router A :: 
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
 
 Router F --- (3) ---> Router B
-Router F :: Router A :: Router B :: 
+Router F :: Router H :: Router C :: Router B :: 
 
 Router F --- (2) ---> Router C
-Router F :: Router A :: Router C :: 
+Router F :: Router H :: Router C :: 
 
-Router F --- (2) ---> Router D
-Router F :: Router A :: Router D :: 
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
 
-Router F --- (2) ---> Router E
-Router F :: Router A :: Router E :: 
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
 
 Router F --- (0) ---> Router F
 Router F :: 
 
-Router F --- (2147483647) ---> Router G
-
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
 
 Router F --- (1) ---> Router H
 Router F :: Router H :: 
 
 Router F --- (3) ---> Router I
-Router F :: Router A :: Router C :: Router I :: 
+Router F :: Router H :: Router C :: Router I :: 
 
 Router F --- (3) ---> Router J
 Router F :: Router H :: Router K :: Router J :: 
@@ -1557,41 +1557,41 @@ Router F --- (3) ---> Router L
 Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router G/////////////////////////////
-Router G --- (2147483647) ---> Router A
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
 
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
 
-Router G --- (2147483647) ---> Router B
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
 
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
 
-Router G --- (2147483647) ---> Router C
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
 
-
-Router G --- (2147483647) ---> Router D
-
-
-Router G --- (2147483647) ---> Router E
-
-
-Router G --- (2147483647) ---> Router F
-
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
 
 Router G --- (0) ---> Router G
 Router G :: 
 
-Router G --- (2147483647) ---> Router H
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
 
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
 
-Router G --- (2147483647) ---> Router I
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
 
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
 
-Router G --- (2147483647) ---> Router J
-
-
-Router G --- (2147483647) ---> Router K
-
-
-Router G --- (2147483647) ---> Router L
-
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router H/////////////////////////////
 Router H --- (2) ---> Router A
@@ -1612,8 +1612,8 @@ Router H :: Router C :: Router A :: Router E ::
 Router H --- (1) ---> Router F
 Router H :: Router F :: 
 
-Router H --- (2147483647) ---> Router G
-
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
 
 Router H --- (0) ---> Router H
 Router H :: 
@@ -1647,10 +1647,10 @@ Router I --- (3) ---> Router E
 Router I :: Router C :: Router A :: Router E :: 
 
 Router I --- (3) ---> Router F
-Router I :: Router C :: Router A :: Router F :: 
+Router I :: Router C :: Router H :: Router F :: 
 
-Router I --- (2147483647) ---> Router G
-
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
 
 Router I --- (2) ---> Router H
 Router I :: Router C :: Router H :: 
@@ -1686,8 +1686,8 @@ Router J :: Router I :: Router C :: Router A :: Router E ::
 Router J --- (3) ---> Router F
 Router J :: Router K :: Router H :: Router F :: 
 
-Router J --- (2147483647) ---> Router G
-
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
 
 Router J --- (2) ---> Router H
 Router J :: Router K :: Router H :: 
@@ -1723,8 +1723,8 @@ Router K :: Router H :: Router C :: Router A :: Router E ::
 Router K --- (2) ---> Router F
 Router K :: Router H :: Router F :: 
 
-Router K --- (2147483647) ---> Router G
-
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
 
 Router K --- (1) ---> Router H
 Router K :: Router H :: 
@@ -1760,8 +1760,8 @@ Router L :: Router K :: Router H :: Router C :: Router A :: Router E ::
 Router L --- (3) ---> Router F
 Router L :: Router K :: Router H :: Router F :: 
 
-Router L --- (2147483647) ---> Router G
-
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
 
 Router L --- (2) ---> Router H
 Router L :: Router K :: Router H :: 
@@ -1778,7 +1778,7 @@ Router L :: Router K ::
 Router L --- (0) ---> Router L
 Router L :: 
 
-time: 5/19/2018 2:32:35 PM
+time: 5/21/2018 10:15:38 AM
 /////////////////////Router A/////////////////////////////
 Router A --- (0) ---> Router A
 Router A :: 
@@ -1795,11 +1795,11 @@ Router A :: Router D ::
 Router A --- (1) ---> Router E
 Router A :: Router E :: 
 
-Router A --- (1) ---> Router F
-Router A :: Router F :: 
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
 
-Router A --- (2147483647) ---> Router G
-
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router A --- (2) ---> Router H
 Router A :: Router C :: Router H :: 
@@ -1833,10 +1833,10 @@ Router B --- (1) ---> Router E
 Router B :: Router E :: 
 
 Router B --- (3) ---> Router F
-Router B :: Router A :: Router F :: 
+Router B :: Router C :: Router H :: Router F :: 
 
-Router B --- (2147483647) ---> Router G
-
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
 
 Router B --- (2) ---> Router H
 Router B :: Router C :: Router H :: 
@@ -1870,10 +1870,10 @@ Router C --- (2) ---> Router E
 Router C :: Router A :: Router E :: 
 
 Router C --- (2) ---> Router F
-Router C :: Router A :: Router F :: 
+Router C :: Router H :: Router F :: 
 
-Router C --- (2147483647) ---> Router G
-
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
 
 Router C --- (1) ---> Router H
 Router C :: Router H :: 
@@ -1906,11 +1906,11 @@ Router D ::
 Router D --- (1) ---> Router E
 Router D :: Router E :: 
 
-Router D --- (2) ---> Router F
-Router D :: Router A :: Router F :: 
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
 
-Router D --- (2147483647) ---> Router G
-
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
 
 Router D --- (2) ---> Router H
 Router D :: Router C :: Router H :: 
@@ -1943,11 +1943,11 @@ Router E :: Router D ::
 Router E --- (0) ---> Router E
 Router E :: 
 
-Router E --- (2) ---> Router F
-Router E :: Router A :: Router F :: 
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
 
-Router E --- (2147483647) ---> Router G
-
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
 
 Router E --- (3) ---> Router H
 Router E :: Router A :: Router C :: Router H :: 
@@ -1965,32 +1965,32 @@ Router E --- (5) ---> Router L
 Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router F/////////////////////////////
-Router F --- (1) ---> Router A
-Router F :: Router A :: 
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
 
 Router F --- (3) ---> Router B
-Router F :: Router A :: Router B :: 
+Router F :: Router H :: Router C :: Router B :: 
 
 Router F --- (2) ---> Router C
-Router F :: Router A :: Router C :: 
+Router F :: Router H :: Router C :: 
 
-Router F --- (2) ---> Router D
-Router F :: Router A :: Router D :: 
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
 
-Router F --- (2) ---> Router E
-Router F :: Router A :: Router E :: 
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
 
 Router F --- (0) ---> Router F
 Router F :: 
 
-Router F --- (2147483647) ---> Router G
-
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
 
 Router F --- (1) ---> Router H
 Router F :: Router H :: 
 
 Router F --- (3) ---> Router I
-Router F :: Router A :: Router C :: Router I :: 
+Router F :: Router H :: Router C :: Router I :: 
 
 Router F --- (3) ---> Router J
 Router F :: Router H :: Router K :: Router J :: 
@@ -2002,41 +2002,41 @@ Router F --- (3) ---> Router L
 Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router G/////////////////////////////
-Router G --- (2147483647) ---> Router A
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
 
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
 
-Router G --- (2147483647) ---> Router B
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
 
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
 
-Router G --- (2147483647) ---> Router C
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
 
-
-Router G --- (2147483647) ---> Router D
-
-
-Router G --- (2147483647) ---> Router E
-
-
-Router G --- (2147483647) ---> Router F
-
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
 
 Router G --- (0) ---> Router G
 Router G :: 
 
-Router G --- (2147483647) ---> Router H
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
 
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
 
-Router G --- (2147483647) ---> Router I
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
 
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
 
-Router G --- (2147483647) ---> Router J
-
-
-Router G --- (2147483647) ---> Router K
-
-
-Router G --- (2147483647) ---> Router L
-
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
 
 /////////////////////Router H/////////////////////////////
 Router H --- (2) ---> Router A
@@ -2057,8 +2057,8 @@ Router H :: Router C :: Router A :: Router E ::
 Router H --- (1) ---> Router F
 Router H :: Router F :: 
 
-Router H --- (2147483647) ---> Router G
-
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
 
 Router H --- (0) ---> Router H
 Router H :: 
@@ -2092,10 +2092,10 @@ Router I --- (3) ---> Router E
 Router I :: Router C :: Router A :: Router E :: 
 
 Router I --- (3) ---> Router F
-Router I :: Router C :: Router A :: Router F :: 
+Router I :: Router C :: Router H :: Router F :: 
 
-Router I --- (2147483647) ---> Router G
-
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
 
 Router I --- (2) ---> Router H
 Router I :: Router C :: Router H :: 
@@ -2131,8 +2131,8 @@ Router J :: Router I :: Router C :: Router A :: Router E ::
 Router J --- (3) ---> Router F
 Router J :: Router K :: Router H :: Router F :: 
 
-Router J --- (2147483647) ---> Router G
-
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
 
 Router J --- (2) ---> Router H
 Router J :: Router K :: Router H :: 
@@ -2168,8 +2168,8 @@ Router K :: Router H :: Router C :: Router A :: Router E ::
 Router K --- (2) ---> Router F
 Router K :: Router H :: Router F :: 
 
-Router K --- (2147483647) ---> Router G
-
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
 
 Router K --- (1) ---> Router H
 Router K :: Router H :: 
@@ -2205,8 +2205,5348 @@ Router L :: Router K :: Router H :: Router C :: Router A :: Router E ::
 Router L --- (3) ---> Router F
 Router L :: Router K :: Router H :: Router F :: 
 
-Router L --- (2147483647) ---> Router G
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
 
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:40 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:43 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:45 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:47 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:49 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:51 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:53 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:55 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:57 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:15:59 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:16:01 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
+
+Router L --- (2) ---> Router H
+Router L :: Router K :: Router H :: 
+
+Router L --- (2) ---> Router I
+Router L :: Router K :: Router I :: 
+
+Router L --- (2) ---> Router J
+Router L :: Router K :: Router J :: 
+
+Router L --- (1) ---> Router K
+Router L :: Router K :: 
+
+Router L --- (0) ---> Router L
+Router L :: 
+
+time: 5/21/2018 10:16:03 AM
+/////////////////////Router A/////////////////////////////
+Router A --- (0) ---> Router A
+Router A :: 
+
+Router A --- (2) ---> Router B
+Router A :: Router B :: 
+
+Router A --- (1) ---> Router C
+Router A :: Router C :: 
+
+Router A --- (1) ---> Router D
+Router A :: Router D :: 
+
+Router A --- (1) ---> Router E
+Router A :: Router E :: 
+
+Router A --- (3) ---> Router F
+Router A :: Router C :: Router H :: Router F :: 
+
+Router A --- (4) ---> Router G
+Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router A --- (2) ---> Router H
+Router A :: Router C :: Router H :: 
+
+Router A --- (2) ---> Router I
+Router A :: Router C :: Router I :: 
+
+Router A --- (3) ---> Router J
+Router A :: Router C :: Router I :: Router J :: 
+
+Router A --- (3) ---> Router K
+Router A :: Router C :: Router H :: Router K :: 
+
+Router A --- (4) ---> Router L
+Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router B/////////////////////////////
+Router B --- (2) ---> Router A
+Router B :: Router A :: 
+
+Router B --- (0) ---> Router B
+Router B :: 
+
+Router B --- (1) ---> Router C
+Router B :: Router C :: 
+
+Router B --- (1) ---> Router D
+Router B :: Router D :: 
+
+Router B --- (1) ---> Router E
+Router B :: Router E :: 
+
+Router B --- (3) ---> Router F
+Router B :: Router C :: Router H :: Router F :: 
+
+Router B --- (4) ---> Router G
+Router B :: Router C :: Router H :: Router F :: Router G :: 
+
+Router B --- (2) ---> Router H
+Router B :: Router C :: Router H :: 
+
+Router B --- (2) ---> Router I
+Router B :: Router C :: Router I :: 
+
+Router B --- (3) ---> Router J
+Router B :: Router C :: Router I :: Router J :: 
+
+Router B --- (3) ---> Router K
+Router B :: Router C :: Router H :: Router K :: 
+
+Router B --- (4) ---> Router L
+Router B :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router C/////////////////////////////
+Router C --- (1) ---> Router A
+Router C :: Router A :: 
+
+Router C --- (1) ---> Router B
+Router C :: Router B :: 
+
+Router C --- (0) ---> Router C
+Router C :: 
+
+Router C --- (1) ---> Router D
+Router C :: Router D :: 
+
+Router C --- (2) ---> Router E
+Router C :: Router A :: Router E :: 
+
+Router C --- (2) ---> Router F
+Router C :: Router H :: Router F :: 
+
+Router C --- (3) ---> Router G
+Router C :: Router H :: Router F :: Router G :: 
+
+Router C --- (1) ---> Router H
+Router C :: Router H :: 
+
+Router C --- (1) ---> Router I
+Router C :: Router I :: 
+
+Router C --- (2) ---> Router J
+Router C :: Router I :: Router J :: 
+
+Router C --- (2) ---> Router K
+Router C :: Router H :: Router K :: 
+
+Router C --- (3) ---> Router L
+Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router D/////////////////////////////
+Router D --- (1) ---> Router A
+Router D :: Router A :: 
+
+Router D --- (1) ---> Router B
+Router D :: Router B :: 
+
+Router D --- (1) ---> Router C
+Router D :: Router C :: 
+
+Router D --- (0) ---> Router D
+Router D :: 
+
+Router D --- (1) ---> Router E
+Router D :: Router E :: 
+
+Router D --- (3) ---> Router F
+Router D :: Router C :: Router H :: Router F :: 
+
+Router D --- (4) ---> Router G
+Router D :: Router C :: Router H :: Router F :: Router G :: 
+
+Router D --- (2) ---> Router H
+Router D :: Router C :: Router H :: 
+
+Router D --- (2) ---> Router I
+Router D :: Router C :: Router I :: 
+
+Router D --- (3) ---> Router J
+Router D :: Router C :: Router I :: Router J :: 
+
+Router D --- (3) ---> Router K
+Router D :: Router C :: Router H :: Router K :: 
+
+Router D --- (4) ---> Router L
+Router D :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router E/////////////////////////////
+Router E --- (1) ---> Router A
+Router E :: Router A :: 
+
+Router E --- (1) ---> Router B
+Router E :: Router B :: 
+
+Router E --- (2) ---> Router C
+Router E :: Router A :: Router C :: 
+
+Router E --- (1) ---> Router D
+Router E :: Router D :: 
+
+Router E --- (0) ---> Router E
+Router E :: 
+
+Router E --- (4) ---> Router F
+Router E :: Router A :: Router C :: Router H :: Router F :: 
+
+Router E --- (5) ---> Router G
+Router E :: Router A :: Router C :: Router H :: Router F :: Router G :: 
+
+Router E --- (3) ---> Router H
+Router E :: Router A :: Router C :: Router H :: 
+
+Router E --- (3) ---> Router I
+Router E :: Router A :: Router C :: Router I :: 
+
+Router E --- (4) ---> Router J
+Router E :: Router A :: Router C :: Router I :: Router J :: 
+
+Router E --- (4) ---> Router K
+Router E :: Router A :: Router C :: Router H :: Router K :: 
+
+Router E --- (5) ---> Router L
+Router E :: Router A :: Router C :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router F/////////////////////////////
+Router F --- (3) ---> Router A
+Router F :: Router H :: Router C :: Router A :: 
+
+Router F --- (3) ---> Router B
+Router F :: Router H :: Router C :: Router B :: 
+
+Router F --- (2) ---> Router C
+Router F :: Router H :: Router C :: 
+
+Router F --- (3) ---> Router D
+Router F :: Router H :: Router C :: Router D :: 
+
+Router F --- (4) ---> Router E
+Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router F --- (0) ---> Router F
+Router F :: 
+
+Router F --- (1) ---> Router G
+Router F :: Router G :: 
+
+Router F --- (1) ---> Router H
+Router F :: Router H :: 
+
+Router F --- (3) ---> Router I
+Router F :: Router H :: Router C :: Router I :: 
+
+Router F --- (3) ---> Router J
+Router F :: Router H :: Router K :: Router J :: 
+
+Router F --- (2) ---> Router K
+Router F :: Router H :: Router K :: 
+
+Router F --- (3) ---> Router L
+Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router G/////////////////////////////
+Router G --- (4) ---> Router A
+Router G :: Router F :: Router H :: Router C :: Router A :: 
+
+Router G --- (4) ---> Router B
+Router G :: Router F :: Router H :: Router C :: Router B :: 
+
+Router G --- (3) ---> Router C
+Router G :: Router F :: Router H :: Router C :: 
+
+Router G --- (4) ---> Router D
+Router G :: Router F :: Router H :: Router C :: Router D :: 
+
+Router G --- (5) ---> Router E
+Router G :: Router F :: Router H :: Router C :: Router A :: Router E :: 
+
+Router G --- (1) ---> Router F
+Router G :: Router F :: 
+
+Router G --- (0) ---> Router G
+Router G :: 
+
+Router G --- (2) ---> Router H
+Router G :: Router F :: Router H :: 
+
+Router G --- (4) ---> Router I
+Router G :: Router F :: Router H :: Router C :: Router I :: 
+
+Router G --- (4) ---> Router J
+Router G :: Router F :: Router H :: Router K :: Router J :: 
+
+Router G --- (3) ---> Router K
+Router G :: Router F :: Router H :: Router K :: 
+
+Router G --- (4) ---> Router L
+Router G :: Router F :: Router H :: Router K :: Router L :: 
+
+/////////////////////Router H/////////////////////////////
+Router H --- (2) ---> Router A
+Router H :: Router C :: Router A :: 
+
+Router H --- (2) ---> Router B
+Router H :: Router C :: Router B :: 
+
+Router H --- (1) ---> Router C
+Router H :: Router C :: 
+
+Router H --- (2) ---> Router D
+Router H :: Router C :: Router D :: 
+
+Router H --- (3) ---> Router E
+Router H :: Router C :: Router A :: Router E :: 
+
+Router H --- (1) ---> Router F
+Router H :: Router F :: 
+
+Router H --- (2) ---> Router G
+Router H :: Router F :: Router G :: 
+
+Router H --- (0) ---> Router H
+Router H :: 
+
+Router H --- (2) ---> Router I
+Router H :: Router C :: Router I :: 
+
+Router H --- (2) ---> Router J
+Router H :: Router K :: Router J :: 
+
+Router H --- (1) ---> Router K
+Router H :: Router K :: 
+
+Router H --- (2) ---> Router L
+Router H :: Router K :: Router L :: 
+
+/////////////////////Router I/////////////////////////////
+Router I --- (2) ---> Router A
+Router I :: Router C :: Router A :: 
+
+Router I --- (2) ---> Router B
+Router I :: Router C :: Router B :: 
+
+Router I --- (1) ---> Router C
+Router I :: Router C :: 
+
+Router I --- (2) ---> Router D
+Router I :: Router C :: Router D :: 
+
+Router I --- (3) ---> Router E
+Router I :: Router C :: Router A :: Router E :: 
+
+Router I --- (3) ---> Router F
+Router I :: Router C :: Router H :: Router F :: 
+
+Router I --- (4) ---> Router G
+Router I :: Router C :: Router H :: Router F :: Router G :: 
+
+Router I --- (2) ---> Router H
+Router I :: Router C :: Router H :: 
+
+Router I --- (0) ---> Router I
+Router I :: 
+
+Router I --- (1) ---> Router J
+Router I :: Router J :: 
+
+Router I --- (1) ---> Router K
+Router I :: Router K :: 
+
+Router I --- (2) ---> Router L
+Router I :: Router K :: Router L :: 
+
+/////////////////////Router J/////////////////////////////
+Router J --- (3) ---> Router A
+Router J :: Router I :: Router C :: Router A :: 
+
+Router J --- (3) ---> Router B
+Router J :: Router I :: Router C :: Router B :: 
+
+Router J --- (2) ---> Router C
+Router J :: Router I :: Router C :: 
+
+Router J --- (3) ---> Router D
+Router J :: Router I :: Router C :: Router D :: 
+
+Router J --- (4) ---> Router E
+Router J :: Router I :: Router C :: Router A :: Router E :: 
+
+Router J --- (3) ---> Router F
+Router J :: Router K :: Router H :: Router F :: 
+
+Router J --- (4) ---> Router G
+Router J :: Router K :: Router H :: Router F :: Router G :: 
+
+Router J --- (2) ---> Router H
+Router J :: Router K :: Router H :: 
+
+Router J --- (1) ---> Router I
+Router J :: Router I :: 
+
+Router J --- (0) ---> Router J
+Router J :: 
+
+Router J --- (1) ---> Router K
+Router J :: Router K :: 
+
+Router J --- (2) ---> Router L
+Router J :: Router K :: Router L :: 
+
+/////////////////////Router K/////////////////////////////
+Router K --- (3) ---> Router A
+Router K :: Router H :: Router C :: Router A :: 
+
+Router K --- (3) ---> Router B
+Router K :: Router H :: Router C :: Router B :: 
+
+Router K --- (2) ---> Router C
+Router K :: Router H :: Router C :: 
+
+Router K --- (3) ---> Router D
+Router K :: Router H :: Router C :: Router D :: 
+
+Router K --- (4) ---> Router E
+Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router K --- (2) ---> Router F
+Router K :: Router H :: Router F :: 
+
+Router K --- (3) ---> Router G
+Router K :: Router H :: Router F :: Router G :: 
+
+Router K --- (1) ---> Router H
+Router K :: Router H :: 
+
+Router K --- (1) ---> Router I
+Router K :: Router I :: 
+
+Router K --- (1) ---> Router J
+Router K :: Router J :: 
+
+Router K --- (0) ---> Router K
+Router K :: 
+
+Router K --- (1) ---> Router L
+Router K :: Router L :: 
+
+/////////////////////Router L/////////////////////////////
+Router L --- (4) ---> Router A
+Router L :: Router K :: Router H :: Router C :: Router A :: 
+
+Router L --- (4) ---> Router B
+Router L :: Router K :: Router H :: Router C :: Router B :: 
+
+Router L --- (3) ---> Router C
+Router L :: Router K :: Router H :: Router C :: 
+
+Router L --- (4) ---> Router D
+Router L :: Router K :: Router H :: Router C :: Router D :: 
+
+Router L --- (5) ---> Router E
+Router L :: Router K :: Router H :: Router C :: Router A :: Router E :: 
+
+Router L --- (3) ---> Router F
+Router L :: Router K :: Router H :: Router F :: 
+
+Router L --- (4) ---> Router G
+Router L :: Router K :: Router H :: Router F :: Router G :: 
 
 Router L --- (2) ---> Router H
 Router L :: Router K :: Router H :: 

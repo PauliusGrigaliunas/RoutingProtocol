@@ -85,19 +85,19 @@ namespace RoutingProtocol
             new Cycle<string>(Graph, vertices).Runner();
 
 
-            Console.WriteLine(Graph.AdressReach(vertices[5], vertices[6]));
+            Console.WriteLine(Graph.AdressReach(vertices[0], vertices[5]));
 
             Thread.Sleep(100);
 
-            vertices[5].RemoveEdge(vertices[6]);
+            vertices[0].RemoveEdge(vertices[5]);
 
             Thread.Sleep(100);
 
-            Console.WriteLine(Graph.AdressReach(vertices[6], vertices[5]));
+            Console.WriteLine(Graph.AdressReach(vertices[0], vertices[5]));
 
             Thread.Sleep(2000);
 
-            Console.WriteLine(Graph.AdressReach(vertices[6], vertices[5]));
+            Console.WriteLine(Graph.AdressReach(vertices[0], vertices[5]));
 
 
 
